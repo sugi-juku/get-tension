@@ -43,10 +43,10 @@ For example, install python modules for macOS.
 
 ```bash
 sudo easy_install pip
-sudo pip install numpy
-sudo pip install matplotlib
-sudo pip install pyaudio
-sudo pip install sklearn
+pip install numpy
+pip install matplotlib
+pip install pyaudio
+pip install sklearn
 ```
 
 ## Usage
