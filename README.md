@@ -61,6 +61,8 @@ pip install sklearn
 
     - Record sound
 
+        Because making an argument is not easy, I recommend GUI version.
+
         For example
 
         ```bash
@@ -107,8 +109,6 @@ pip install sklearn
 ## Author
 
 * Yukihiko Sugimura
-* Sugimura private-tutoring school
-* Sugimura stringing shop
 * E-Mail : sugimura_juku@yahoo.co.jp
 
 ## Licence
