@@ -19,7 +19,7 @@ The work is as follows.
 1. CUI version was working on Python 2.7.16.
 1. I tried to add GUI by tkinter.
 1. GUI version was working on Python 2.7.16.
-1. Python 3.7.6 was supported.
+1. Python 3.7.7 was supported.
 
 I\'m both a stringer and a programmer.
 I used to develop web applications often with PHP.
@@ -33,13 +33,13 @@ Maybe it works python 2.7.X or python 3.7.X.
 
 My development environment
 
-* macOS Mojave 10.14.6
+* Mac OS X  Mojave 10.14.6
 * python 2.7.16
-* python 3.7.6
+* python 3.7.7
 
 ## Installation
 
-For example, install python modules for macOS.
+For example, install python modules for Mac OS X.
 
 ```bash
 sudo easy_install pip
@@ -96,6 +96,8 @@ pip install sklearn
 
     - Get racket tension
 
+        {wavfilename} is filename with a relative path from get_tension.py.
+
         ```bash
         python get_tension.py {wavfilename}
         ```
@@ -110,6 +112,8 @@ pip install sklearn
 
 * Yukihiko Sugimura
 * E-Mail : sugimura_juku@yahoo.co.jp
+* https://sugi-juku.com
+* https://tennis.sugi-juku.com
 
 ## Licence
 
