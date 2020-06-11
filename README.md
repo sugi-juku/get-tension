@@ -59,16 +59,29 @@ pip install sklearn
 
 - CUI version
 
-    - Record sound
+    - Append training data version
+
+        If you have just finished stringing, use this version.
 
         Because making an argument is not easy, I recommend GUI version.
 
         For example
 
         ```bash
-        python record.py T_45-43_GOMS16-GOAKP16_98_16-19
-        python record.py B_25_YOBG66UM
+        python get_tension_data_append.py T_45-43_GOMS16-GOAKP16_98_16-19
+        python get_tension_data_append.py B_25_YOBG66UM
         ```
+    - NOT append training data version
+
+        If you want to get current tension, use this version.
+
+        For example
+
+        ```bash
+        python get_tension_data_noappend.py T_45-43_GOMS16-GOAKP16_98_16-19
+        python get_tension_data_noappend.py B_25_YOBG66UM
+        ```
+
 
         - Argument: Tennis
 
@@ -94,18 +107,28 @@ pip install sklearn
                 Argument = B_{MainTension}-{CrossTension}_{MainString}
             ```
 
-    - Get racket tension
+    - Get racket tension from wavfile
 
-        {wavfilename} is filename with a relative path from get_tension.py.
+        {wavfilename} is filename with a relative path from get_tension_from_wav.py.
 
         ```bash
-        python get_tension.py {wavfilename}
+        python get_tension_from_wav.py {wavfilename}
         ```
 
     - Show training data
 
         ```bash
         python plt_data.py
+        ```
+
+    - Show tension change
+
+        You can see tension change from wavfile in target directory.
+
+        For example
+
+        ```bash
+        python plt_tension_change.py tmp/sample
         ```
 
 ## Author
