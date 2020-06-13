@@ -124,7 +124,7 @@ pip install sklearn
 
         You can see graphs of training data.
 
-        This includes `fit_lr.py`.
+        This includes fit_lr.py.
 
         ```bash
         python plt_data.py
