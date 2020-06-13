@@ -2,7 +2,7 @@
 
 For people who love Tennis and Badminton.
 You can get racket string tension from sound by hitting your racket face.
-AI learn stringing data just finished stringing, and predict current racket string tension.
+AI learns stringing data just finished stringing, and predicts current racket string tension.
 It is written with Python.
 
 ## Description
@@ -53,6 +53,8 @@ pip install sklearn
 
 - GUI version
 
+    get_tension_app.py
+
     It is easy to use.
 
     ```bash
@@ -61,7 +63,7 @@ pip install sklearn
 
 - CUI version
 
-    - Append training data version
+    - get_tension_data_append.py
 
         If you have just finished stringing, use this version.
 
@@ -73,7 +75,7 @@ pip install sklearn
         python get_tension_data_append.py T_45-43_GOMS16-GOAKP16_98_16-19
         python get_tension_data_append.py B_25_YOBG66UM
         ```
-    - NOT append training data version
+    - get_tension_data_noappend.py
 
         If you want to get current racket string tension, use this version.
 
@@ -83,7 +85,6 @@ pip install sklearn
         python get_tension_data_noappend.py T_45-43_GOMS16-GOAKP16_98_16-19
         python get_tension_data_noappend.py B_25_YOBG66UM
         ```
-
 
         - Argument: Tennis
 
@@ -109,7 +110,9 @@ pip install sklearn
                 Argument = B_{MainTension}-{CrossTension}_{MainString}
             ```
 
-    - Get racket tension from wavfile
+    - get_tension_from_wav.py
+
+        You can get racket string tension from wavfile.
 
         {wavfilename} is filename with a relative path from get_tension_from_wav.py.
 
@@ -117,21 +120,36 @@ pip install sklearn
         python get_tension_from_wav.py {wavfilename}
         ```
 
-    - Show training data
+    - plt_data.py
+
+        You can see graphs of training data.
+
+        This includes `fit_lr.py`.
 
         ```bash
         python plt_data.py
         ```
 
-    - Show tension change
+    - plt_tension_change.py
 
-        You can see tension change from wavfile in target directory.
+        You can see a graph of tension change from wavfile in target directory.
 
         For example.
 
         ```bash
         python plt_tension_change.py tmp/sample
         ```
+
+    - fit_lr.py
+
+        Training data are fitted using Linear Regression.
+
+        It is good to run this regularly using cron.
+
+    - remake_stdata.py
+
+        You can remake training data from wavfiles.
+
 
 ## Author
 
