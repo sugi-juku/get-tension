@@ -53,8 +53,6 @@ pip install sklearn
 
 - GUI version
 
-    `get_tension_app.py`
-
     It is easy to use.
 
     ```bash
@@ -66,9 +64,7 @@ pip install sklearn
     - get_tension_data_append.py
 
         If you have just finished stringing, use this version.
-
         Data is appended to training data.
-
         For example.
 
         ```bash
@@ -78,7 +74,6 @@ pip install sklearn
     - get_tension_data_noappend.py
 
         If you want to get current racket string tension, use this version.
-
         For example.
 
         ```bash
@@ -113,7 +108,6 @@ pip install sklearn
     - get_tension_from_wav.py
 
         You can get racket string tension from wavfile.
-
         {wavfilename} is filename with a relative path from get_tension_from_wav.py.
 
         ```bash
@@ -123,7 +117,6 @@ pip install sklearn
     - plt_data.py
 
         You can see graphs of training data.
-
         This includes fit_lr.py.
 
         ```bash
@@ -133,7 +126,6 @@ pip install sklearn
     - plt_tension_change.py
 
         You can see a graph of tension change from wavfile in target directory.
-
         For example.
 
         ```bash
@@ -143,7 +135,6 @@ pip install sklearn
     - fit_lr.py
 
         Training data are fitted using Linear Regression.
-
         It is good to run this regularly using cron.
 
     - remake_stdata.py
