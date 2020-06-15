@@ -136,7 +136,7 @@ pip install scikit-learn
 
     - fit_lr.py
 
-        Training data are fitted using Linear Regression.
+        You can fit linear model.
         It is good to run this regularly using cron.
 
     - remake_stdata.py
