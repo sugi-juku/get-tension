@@ -45,8 +45,8 @@ For example, install python modules for Mac OS X.
 sudo easy_install pip
 pip install numpy
 pip install matplotlib
-pip install pyaudio
-pip install sklearn
+pip install PyAudio
+pip install scikit-learn
 ```
 
 ## Usage
