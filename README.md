@@ -5,6 +5,8 @@ You can get racket string tension from sound by hitting your racket face.
 AI learns sound which I have just finished stringing, and predicts current racket string tension.
 It is written in Python.
 
+![python powered](python-powered-w-200x80.png)
+
 ## Description
 
 My stringing shop was closed for COVID-19 in Spring 2020.
