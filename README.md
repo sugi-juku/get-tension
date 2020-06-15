@@ -16,7 +16,7 @@ The work is as follows.
 
 1. I recorded racket string sound which I have just finished stringing and gathered training data.
 1. I got fundamental frequency from sound using FFT.
-1. I tried to let AI learn training data using sciket-learn Linear Regression.
+1. I tried to let AI learn training data using scikit-learn Linear Regression.
 1. I tried to design good classes.
 1. CUI version was working on Python 2.7.16.
 1. I tried to add GUI using tkinter.
