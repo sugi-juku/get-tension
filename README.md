@@ -142,6 +142,7 @@ pip install scikit-learn
     - remake_stdata.py
 
         You can remake training data from wavfiles.
+        Normally you don\'t have to use it.
 
 
 ## Author
