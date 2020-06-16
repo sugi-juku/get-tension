@@ -2,7 +2,7 @@
 
 For people who love Tennis and Badminton.
 You can get racket string tension from sound by hitting your racket face.
-AI learns sound which I have just finished stringing, and predicts current racket string tension.
+AI learns sound just finished stringing, and predicts current racket string tension.
 It is written in Python.
 
 ![python powered](https://github.com/sugi-juku/get-tension/python-powered-w-200x80.png)
@@ -14,7 +14,7 @@ Then I decided to develop an application getting racket string tension from soun
 
 The work is as follows.
 
-1. I recorded racket string sound which I have just finished stringing and gathered training data.
+1. I recorded racket string sound just finished stringing and gathered training data.
 1. I got fundamental frequency from sound using FFT.
 1. I tried to let AI learn training data using scikit-learn Linear Regression.
 1. I tried to design good classes.
