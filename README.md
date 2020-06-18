@@ -36,8 +36,8 @@ Maybe it works python 2.7.X or python 3.7.X.
 My development environment
 
 * Mac OS X  Mojave 10.14.6
-* python 2.7.16
-* python 3.7.7
+* python 2.7.16 (Pre-installed Mac OS X)
+* python 3.7.7 (Homebrew)
 
 ## Installation
 
