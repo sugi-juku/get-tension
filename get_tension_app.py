@@ -191,10 +191,11 @@ main_win = tk.Tk()
 win_w = main_win.winfo_screenwidth()
 win_h = main_win.winfo_screenheight()
 app_w = 300
-app_h = 320
+app_h = 330
 main_win.geometry(get_center_geometry_str(win_w, win_h, app_w, app_h))
 
 main_win.title("Get Tension")
+main_win.configure(bg="white")
 logo = tk.PhotoImage(file="logo_270.gif")
 logo_label = tk.Label(main_win, image=logo)
 py_logo = tk.PhotoImage(file="python-powered-w-200x80.gif")
