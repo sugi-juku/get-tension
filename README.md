@@ -36,12 +36,14 @@ Maybe it works python 2.7.X or python 3.7.X.
 Tested environment
 
 * Mac OS X  Mojave 10.14.6
-* python 2.7.16 (Pre-installed Mac OS X)
-* python 3.7.7 (Homebrew)
+
+    * python 2.7.16 (Pre-installed Mac OS X)
+    * python 3.7.7 (Homebrew)
 
 * Ubuntu 19.10
-* python 2.7.17
-* pytyon 3.7.5
+
+    * python 2.7.17
+    * pytyon 3.7.5
 
 ## Installation
 
