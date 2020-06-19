@@ -9,7 +9,7 @@ It is written in Python.
 
 ## Description
 
-My stringing shop was closed for COVID-19 in Spring 2020.
+My stringing shop was closed 2 months for COVID-19 in Spring 2020.
 Then I decided to develop an application getting racket string tension from sound.
 
 The work is as follows.
@@ -18,10 +18,11 @@ The work is as follows.
 1. I got fundamental frequency from sound using FFT.
 1. I tried to let AI learn training data using scikit-learn Linear Regression.
 1. I tried to design good classes.
-1. CUI version was working on Python 2.7.16.
+1. CUI version was working on Mac OS X Python 2.7.16.
 1. I tried to add GUI using tkinter.
-1. GUI version was working on Python 2.7.16.
-1. Python 3.7.7 was supported.
+1. GUI version was working on Mac OS X Python 2.7.16.
+1. Mac OS X Python 3.7.7 was supported.
+1. Ubuntu Python was tested.
 
 I\'m both a stringer and a programmer.
 I used to develop web applications often with PHP.
@@ -33,9 +34,9 @@ Now, I love Python, too.
 Maybe it works python 2.7.X or python 3.7.X.
 
 
-Tested environment
+### Tested environment
 
-* Mac OS X  Mojave 10.14.6
+* Mac OS X  Mojave 10.14.6 (My development environment)
 
     * python 2.7.16 (Pre-installed Mac OS X)
     * python 3.7.7 (Homebrew)
@@ -47,15 +48,26 @@ Tested environment
 
 ## Installation
 
-For example, install python modules for Mac OS X.
+### Mac OS X
+
+First, Install python3 with Homebrew.
 
 ```bash
-sudo easy_install pip
-pip install numpy
-pip install matplotlib
-pip install PyAudio
-pip install scikit-learn
-pip install pathlib
+brew install python
+```
+
+Install python modules.
+
+```bash
+./install_python_modules_mac.sh
+```
+
+### Ubuntu
+
+Install python and python modules.
+
+```bash
+./install_python_modules_linux.sh
 ```
 
 ## Usage
