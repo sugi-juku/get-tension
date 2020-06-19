@@ -33,11 +33,15 @@ Now, I love Python, too.
 Maybe it works python 2.7.X or python 3.7.X.
 
 
-My development environment
+Tested environment
 
 * Mac OS X  Mojave 10.14.6
 * python 2.7.16 (Pre-installed Mac OS X)
 * python 3.7.7 (Homebrew)
+
+* Ubuntu 19.10
+* python 2.7.17
+* pytyon 3.7.5
 
 ## Installation
 
@@ -49,6 +53,7 @@ pip install numpy
 pip install matplotlib
 pip install PyAudio
 pip install scikit-learn
+pip install pathlib
 ```
 
 ## Usage
@@ -60,6 +65,8 @@ pip install scikit-learn
     ```bash
     python get_tension_app.py
     ```
+
+    If it doesn't respond to your racket string sound, try increasing the sensitivity of the microphone.
 
 - CUI version
 
