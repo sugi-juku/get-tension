@@ -18,11 +18,11 @@ The work is as follows.
 1. I got fundamental frequency from sound using FFT.
 1. I tried to let AI learn training data using scikit-learn Linear Regression.
 1. I tried to design good classes.
-1. CUI version was working on Mac OS X Python 2.7.16.
+1. CUI version worked on Mac OS X Python 2.7.16.
 1. I tried to add GUI using tkinter.
-1. GUI version was working on Mac OS X Python 2.7.16.
-1. Mac OS X Python 3.7.7 was supported.
-1. Ubuntu Python was tested.
+1. GUI version worked on Mac OS X Python 2.7.16.
+1. It worked on Mac OS X Python 3.7.7.
+1. It worked on Ubuntu Python.
 
 I\'m both a stringer and a programmer.
 I used to develop web applications often with PHP.
@@ -50,13 +50,13 @@ Maybe it works python 2.7.X or python 3.7.X.
 
 ### Mac OS X
 
-First, Install python3 with Homebrew.
+First, install python3 with Homebrew.
 
 ```bash
 brew install python
 ```
 
-Install python modules.
+Then install python modules.
 
 ```bash
 ./install_python_modules_mac.sh
