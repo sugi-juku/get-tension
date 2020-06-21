@@ -1,18 +1,17 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # coding: utf-8
 
 import os
 
-try:
-    # Python2
-    import Tkinter as tk
-    import tkMessageBox as messagebox
-    import ttk
-except ImportError:
-    # Python3
-    import tkinter as tk
-    from tkinter import messagebox
-    import tkinter.ttk as ttk
+# Python2
+# import Tkinter as tk
+# import tkMessageBox as messagebox
+# import ttk
+
+# Python3
+import tkinter as tk
+from tkinter import messagebox
+import tkinter.ttk as ttk
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 

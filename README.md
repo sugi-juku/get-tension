@@ -23,6 +23,7 @@ The work is as follows.
 1. GUI version worked on Mac OS X Python 2.7.16.
 1. It worked on Mac OS X Python 3.7.7.
 1. It worked on Ubuntu Python.
+1. Apple says "Use of Python 2.7 isn\'t recommended as this version is include in macOS for compatibility with legacy software.". I decided to use Python3.
 
 I\'m both a stringer and a programmer.
 I used to develop web applications often with PHP.
@@ -31,8 +32,7 @@ Now, I love Python, too.
 
 ## Requirement
 
-Maybe it works python 2.7.X or python 3.7.X.
-
+Maybe it works on Python 3.7.X.
 
 ### Tested environment
 
@@ -50,7 +50,7 @@ Maybe it works python 2.7.X or python 3.7.X.
 
 ### Mac OS X
 
-First, install python3 with Homebrew.
+First, install Python3 with Homebrew.
 
 ```bash
 brew install python
@@ -77,7 +77,7 @@ Install python and python modules.
     It is easy to use.
 
     ```bash
-    python get_tension_app.py
+    python3 get_tension_app.py
     ```
 
     If it doesn't respond to your racket string sound, try increasing the sensitivity of the microphone.
@@ -91,8 +91,8 @@ Install python and python modules.
         For example.
 
         ```bash
-        python get_tension_data_append.py T_45-43_GOMS16-GOAKP16_98_16-19
-        python get_tension_data_append.py B_25_YOBG66UM
+        python3 get_tension_data_append.py T_45-43_GOMS16-GOAKP16_98_16-19
+        python3 get_tension_data_append.py B_25_YOBG66UM
         ```
     - get_tension_data_noappend.py
 
@@ -100,8 +100,8 @@ Install python and python modules.
         For example.
 
         ```bash
-        python get_tension_data_noappend.py T_45-43_GOMS16-GOAKP16_98_16-19
-        python get_tension_data_noappend.py B_25_YOBG66UM
+        python3 get_tension_data_noappend.py T_45-43_GOMS16-GOAKP16_98_16-19
+        python3 get_tension_data_noappend.py B_25_YOBG66UM
         ```
 
         - Argument: Tennis
@@ -134,7 +134,7 @@ Install python and python modules.
         {wavfilename} is filename with a relative path from get_tension_from_wav.py.
 
         ```bash
-        python get_tension_from_wav.py {wavfilename}
+        python3 get_tension_from_wav.py {wavfilename}
         ```
 
     - plt_data.py
@@ -143,7 +143,7 @@ Install python and python modules.
         This includes fit_lr.py.
 
         ```bash
-        python plt_data.py
+        python3 plt_data.py
         ```
 
     - plt_tension_change.py
@@ -152,7 +152,7 @@ Install python and python modules.
         For example.
 
         ```bash
-        python plt_tension_change.py tmp/sample
+        python3 plt_tension_change.py tmp/sample
         ```
 
     - fit_lr.py
