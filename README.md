@@ -60,6 +60,16 @@ Then install python modules.
 ./install_python_modules_mac.sh
 ```
 
+### Windows
+
+Install Python3 for Windows from https://www.python.org/downloads/ .
+
+Then install python modules.
+
+```
+./install_python_modules_win.bat
+```
+
 ### Ubuntu
 
 Install python and python modules.
