@@ -37,7 +37,7 @@ def get_argstr(stype, main_t, cross_t, main_s, cross_s, size, main_n, cross_n, d
     return argstr
 
 
-class StringArg(object):
+class StringArg:
     arg_list = []
     tension = 0.0
     main_tension = 0.0
@@ -124,8 +124,6 @@ class StringArg(object):
 
     def get_cross_pat_n(self):
         return self.cross_pat_n
-
-
 
 
 class StringData(StringArg):
