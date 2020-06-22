@@ -13,12 +13,12 @@ import string_data as sda
 import string_lr as sl
 
 
-slr = sl.StringLr("B")
+slr = sl.StringLr00("B")
 slr.fit()
 print("Badminton")
 print("Mean squared error = " + str(slr.get_mean_squared_error()))
 
-slr = sl.StringLr("T")
+slr = sl.StringLr00("T")
 slr.fit()
 print("Tennis")
 print("Mean squared error = " + str(slr.get_mean_squared_error()))

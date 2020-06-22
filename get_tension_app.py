@@ -55,7 +55,7 @@ def run_click():
     for filename in srec.get_file_list():
         sdata = sda.StringData()
         sdata.make_data(filename, csv_append)
-        sl = slr.StringLr(stype)
+        sl = slr.StringLr00(stype)
         xlist = sl.get_lrdata_xlist(sdata)
         tension.append(sl.get_lrcal_tension(xlist))
 
