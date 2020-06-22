@@ -149,7 +149,7 @@ class StringLr:
             reader = csv.reader(csvf, quoting=csv.QUOTE_NONNUMERIC)
             coef = next(reader)
             # print coef
-            tension = 0
+            tension = 0.0
             tension = coef[0]*float(f0)+coef[1]*float(gauge)+coef[2]
             return tension
 
@@ -163,7 +163,7 @@ class StringLr:
             reader = csv.reader(csvf, quoting=csv.QUOTE_NONNUMERIC)
             coef = next(reader)
             # print coef
-            tension = 0
+            tension = 0.0
             tension = coef[0]*float(f0)+coef[1]*float(gauge)+coef[2]*float(density)+coef[3]*float(size)+coef[4]*float(pat_n)+coef[5]
             return tension
 
@@ -182,6 +182,74 @@ class StringLr:
             return sum_error2/len(self.x)
             
             
+class StringLr00(StringLr):
+    lrdata_file = {}
+    lrdata_file["B"] = "lrdata00_b.csv"
+    lrdata_file["T"] = "lrdata00_t.csv"
+
+    lrcoef_file = {}
+    lrcoef_file["B"] = "lrcoef00_b.csv"
+    lrcoef_file["T"] = "lrcoef00_t.csv"
+
+    lr_header = {}
+    lr_header["B"] = ["Tension","F0","Gauge"]
+    lr_header["T"] = ["Tension","F0","MainGauge","MainDensity","CrossGauge","CrossDensity","FaceSize","MainPatN","CrossPatN"]
+    
+    def __init__(self, stype):
+        super().__init__(stype)
+
+    def get_lrdata_xlist_t(self, sdata):
+        sdef = sdf.StringDef(self.stype)
+        xlist=[]
+
+        # F0
+        xlist.append(float(sdata.get_f0()))
+
+        # Main String
+        msg=float(sdef.get_gauge(sdata.get_main_string()))
+        msd=float(sdef.get_density(sdata.get_main_string()))
+        # Cross String
+        if sdata.get_cross_string()=='':
+            csg=float(sdef.get_gauge(sdata.get_main_string()))
+            csd=float(sdef.get_density(sdata.get_main_string()))
+        else:
+            csg=float(sdef.get_gauge(sdata.get_cross_string()))
+            csd=float(sdef.get_density(sdata.get_cross_string()))
+
+        # Main Gaug
+        xlist.append(msg)
+        # Main Density
+        xlist.append(msd)
+        # Cross Gauge
+        xlist.append(csg)
+        # Cross Density
+        xlist.append(csd)
+        # Face Size
+        xlist.append(float(sdata.get_size()))
+        # Main Pattern Number
+        xlist.append(sdata.get_main_pat_n())
+        # Cross Pattern Number
+        xlist.append(sdata.get_cross_pat_n())
+        return xlist
+
+    def get_lrcal_tension_t(self, xlist):
+        f0 = xlist[0]
+        msg = xlist[1]
+        msd = xlist[2]
+        csg = xlist[3]
+        csd = xlist[4]
+        size = xlist[5]
+        mpat_n = xlist[6]
+        cpat_n = xlist[7]
+        with open(self.lrcoef_file[self.stype]) as csvf:
+            reader = csv.reader(csvf, quoting=csv.QUOTE_NONNUMERIC)
+            coef = next(reader)
+            # print coef
+            tension = 0.0
+            tension = coef[0]*float(f0)+coef[1]*float(msg)+coef[2]*float(msd)+coef[3]*float(csg)+coef[4]*float(csd)+coef[5]*float(size)+coef[6]*float(mpat_n)+coef[7]*float(cpat_n)+coef[8]
+            return tension
+
+
 if __name__ == "__main__":
     slr = StringLr("B")
     slr.fit()
@@ -191,4 +259,9 @@ if __name__ == "__main__":
     slr = StringLr("T")
     slr.fit()
     print("Tennis")
+    print("Mean squared error = " + str(slr.get_mean_squared_error()))
+
+    slr = StringLr00("T")
+    slr.fit()
+    print("Tennis00")
     print("Mean squared error = " + str(slr.get_mean_squared_error()))
