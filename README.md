@@ -23,7 +23,7 @@ The work is as follows.
 1. GUI version worked on Mac OS X Python 2.7.16.
 1. It worked on Mac OS X Python 3.7.7.
 1. It worked on Ubuntu Python.
-1. Apple says "Use of Python 2.7 isn\'t recommended as this version is include in macOS for compatibility with legacy software.". I decided to use Python3.
+1. Apple says "Use of Python 2.7 isn\'t recommended as this version is include in macOS for compatibility with legacy software.". So I decided to use Python3.
 
 I\'m both a stringer and a programmer.
 I used to develop web applications often with PHP.
@@ -38,12 +38,10 @@ Maybe it works on Python 3.7.X.
 
 * Mac OS X  Mojave 10.14.6 (My development environment)
 
-    * python 2.7.16 (Pre-installed Mac OS X)
     * python 3.7.7 (Homebrew)
 
 * Ubuntu 19.10
 
-    * python 2.7.17
     * pytyon 3.7.5
 
 ## Installation
@@ -52,13 +50,13 @@ Maybe it works on Python 3.7.X.
 
 First, install Python3 with Homebrew.
 
-```bash
+```
 brew install python
 ```
 
 Then install python modules.
 
-```bash
+```
 ./install_python_modules_mac.sh
 ```
 
@@ -66,7 +64,7 @@ Then install python modules.
 
 Install python and python modules.
 
-```bash
+```
 ./install_python_modules_linux.sh
 ```
 
@@ -76,11 +74,11 @@ Install python and python modules.
 
     It is easy to use.
 
-    ```bash
+    ```
     python3 get_tension_app.py
     ```
 
-    If it doesn't respond to your racket string sound, try increasing the sensitivity of the microphone.
+    If it doesn't respond to your racket string sound, try to increase the sensitivity of the microphone.
 
 - CUI version
 
@@ -90,7 +88,7 @@ Install python and python modules.
         Data is appended to training data.
         For example.
 
-        ```bash
+        ```
         python3 get_tension_data_append.py T_45-43_GOMS16-GOAKP16_98_16-19
         python3 get_tension_data_append.py B_25_YOBG66UM
         ```
@@ -99,14 +97,14 @@ Install python and python modules.
         If you want to get current racket string tension, use this version.
         For example.
 
-        ```bash
+        ```
         python3 get_tension_data_noappend.py T_45-43_GOMS16-GOAKP16_98_16-19
         python3 get_tension_data_noappend.py B_25_YOBG66UM
         ```
 
         - Argument: Tennis
 
-            ```bash
+            ```
             Argument = T_{MainTension}-{CrossTension}_{MainString}-{CrossString}_{FaceSize}_{MainStringNumber}-{CrossStringNumber}
 
             if MainTension == CrossTension:
@@ -118,7 +116,7 @@ Install python and python modules.
 
         - Argument: Badminton
 
-            ```bash
+            ```
             Argument = B_{MainTension}-{CrossTension}_{MainString}-{CrossString}
 
             if MainTension == CrossTension:
@@ -133,7 +131,7 @@ Install python and python modules.
         You can get racket string tension from wavfile.
         {wavfilename} is filename with a relative path from get_tension_from_wav.py.
 
-        ```bash
+        ```
         python3 get_tension_from_wav.py {wavfilename}
         ```
 
@@ -142,7 +140,7 @@ Install python and python modules.
         You can see graphs of training data.
         This includes fit_lr.py.
 
-        ```bash
+        ```
         python3 plt_data.py
         ```
 
@@ -151,7 +149,7 @@ Install python and python modules.
         You can see a graph of tension change from wavfile in target directory.
         For example.
 
-        ```bash
+        ```
         python3 plt_tension_change.py tmp/sample
         ```
 
