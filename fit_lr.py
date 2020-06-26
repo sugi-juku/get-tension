@@ -3,10 +3,11 @@
 
 import csv
 import os
+import sys
 import numpy as np
 from sklearn.linear_model import LinearRegression
 
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
+os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
 
 import string_def as sdf
 import string_data as sda

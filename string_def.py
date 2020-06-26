@@ -160,7 +160,7 @@ class StringDef:
 
 
 if __name__ == "__main__":
-    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+    os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
 
     sd = StringDef('T')
     print(sd.get_key_from_name("GOSEN AK PRO 16"))

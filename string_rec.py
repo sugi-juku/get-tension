@@ -4,6 +4,7 @@
 import pyaudio
 import wave
 import os
+import sys
 import numpy as np
 from datetime import datetime
 
@@ -70,7 +71,7 @@ class StringRec:
         return self.file_list
 
 if __name__ == "__main__":
-    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+    os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
 
     sr = StringRec("T_40_YOPTF120_98_16-19", "tmp/")
     print(sr.get_file_list())

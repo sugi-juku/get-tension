@@ -3,10 +3,11 @@
 
 import csv
 import os
+import sys
 import numpy as np
 import matplotlib.pyplot as plt
 
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
+os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
 
 import string_data as sd
 import string_lr as sl

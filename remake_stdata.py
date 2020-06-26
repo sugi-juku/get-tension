@@ -5,7 +5,7 @@ import sys
 import os
 from pathlib import Path
 
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
+os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
 
 import string_rec as sr
 import string_data as sd
