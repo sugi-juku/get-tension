@@ -22,8 +22,9 @@ The work is as follows.
 1. I tried to add GUI using tkinter.
 1. GUI version worked on Mac OS X Python 2.7.16.
 1. It worked on Mac OS X Python 3.7.7.
-1. It worked on Ubuntu Python.
+1. It worked on Ubuntu Python 3.7.5.
 1. Apple says "Use of Python 2.7 isn\'t recommended as this version is include in macOS for compatibility with legacy software.". So I decided to use Python3.
+1. It worked on Windows 10 Python 3.8.3.
 
 I\'m both a stringer and a programmer.
 I used to develop web applications often with PHP.
@@ -32,7 +33,7 @@ Now, I love Python, too.
 
 ## Requirement
 
-Maybe it works on Python 3.7.X.
+Maybe it works on Python 3.7.X and 3.8.X.
 
 ### Tested environment
 
@@ -43,6 +44,10 @@ Maybe it works on Python 3.7.X.
 * Ubuntu 19.10
 
     * pytyon 3.7.5
+
+* Windows 10
+
+    * python 3.8.3
 
 ## Installation
 
@@ -65,13 +70,14 @@ Then, Install python modules.
 ### Windows
 
 Install Python3.8.X for Windows from https://www.python.org/downloads/ .
+If your PC is x86-64, download  ```Windows x86-64 executable installer``` .
 
 Python module PyAudio says "Microsoft Visual C++ 14.0 is required.", then install Microsoft C++ Build Tools from https://visualstudio.microsoft.com/ . 
 When you install, put a check ```C++ Build Tools``` and in detail put a check ```MSVC v140``` .
 
 Then install python modules. Double click ```install_python_modules_win.bat``` .
 
-NOTE: Normal PyAudio can\'t install, then install PyAudio for win from https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio . If you use Python 3.8 on win_amd64, select PyAudio‑0.2.11‑cp38‑cp38‑win_amd64.whl . 
+NOTE: Normal PyAudio can\'t install, then install PyAudio for win from https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio . If you use Python 3.8 on x86-64, select PyAudio‑0.2.11‑cp38‑cp38‑win_amd64.whl . 
 This includes this file, you don\'t have to download it.
 
 ### Ubuntu
