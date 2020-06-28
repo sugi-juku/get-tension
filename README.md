@@ -48,17 +48,19 @@ Maybe it works on Python 3.7.X.
 
 ### Mac OS X
 
-First, install Python3 with Homebrew.
+    1. Install Homebrew from https://brew.sh/
 
-```
-brew install python
-```
+    1. Install Python3 with Homebrew.
 
-Then install python modules.
+    ```
+    brew install python
+    ```
 
-```
-./install_python_modules_mac.sh
-```
+    1. Install python modules.
+
+    ```
+    ./install_python_modules_mac.sh
+    ```
 
 ### Windows
 
