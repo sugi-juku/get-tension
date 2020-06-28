@@ -64,13 +64,15 @@ Then, Install python modules.
 
 ### Windows
 
-Install Python3 for Windows from https://www.python.org/downloads/ .
+Install Python3.8.X for Windows from https://www.python.org/downloads/ .
 
-Then install python modules.
+Python module PyAudio says "Microsoft Visual C++ 14.0 is required.", then install Microsoft C++ Build Tools from https://visualstudio.microsoft.com/ . 
+When you install, put a check ```C++ Build Tools``` and in detail put a check ```MSVC v140``` .
 
-```
-install_python_modules_win.bat
-```
+NOTE: Normal PyAudio can\'t install, then install PyAudio for win from https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio . If you use Python 3.8 on win_amd64, select PyAudio‑0.2.11‑cp38‑cp38‑win_amd64.whl . 
+This includes this file.
+
+Then install python modules. Double click ```install_python_modules_win.bat``` .
 
 ### Ubuntu
 
