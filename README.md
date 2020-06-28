@@ -48,15 +48,15 @@ Maybe it works on Python 3.7.X.
 
 ### Mac OS X
 
-1. Install Homebrew from https://brew.sh/
+Install Homebrew from https://brew.sh/
 
-1. Install Python3 with Homebrew.
+Then, install Python3 with Homebrew.
 
 ```
 brew install python
 ```
 
-1. Install python modules.
+Then, Install python modules.
 
 ```
 ./install_python_modules_mac.sh
