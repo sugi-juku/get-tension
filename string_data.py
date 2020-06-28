@@ -53,7 +53,7 @@ class StringArg:
         self.set_data_from_filename(wavfile)
 
     def set_data_from_filename(self, wavfile):
-        path_list = wavfile.split("/")
+        path_list = wavfile.split(os.sep)
         filename = path_list[len(path_list)-1]
         data = filename.replace(".wav","")
         self.arg_list = data.split("_")
