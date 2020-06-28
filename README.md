@@ -90,6 +90,8 @@ Install python and python modules.
 
 ## Usage
 
+If you use Windows, you can run ```*.py``` with a double click.
+
 - GUI version
 
     It is easy to use.
@@ -99,6 +101,8 @@ Install python and python modules.
     ```
 
     If it doesn't respond to your racket string sound, try to increase the sensitivity of the microphone.
+
+    If you use Mac OS X, you can run ```get_tension.command``` with a double click.
 
 - CUI version
 
