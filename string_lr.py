@@ -177,7 +177,7 @@ class StringLr:
             self.error = []
             for i,xlist in enumerate(self.x):
                 self.lrcal_y.append(self.get_lrcal_tension(xlist))
-                error = self.lrcal_y[i] - self.y[i]
+                error = self.y[i] - self.lrcal_y[i]
                 self.error.append(error)
                 sum_error2 += error*error
             return sum_error2/len(self.x)
