@@ -42,7 +42,7 @@ for key, name in sd.stdata_file.items():
     error2 = 0.0
     err = []
     for i,x_val in enumerate(x):
-        error = func(x_val) - y[i]
+        error = y[i] - func(x_val)
         error2 += error*error
         err.append(error)
     mean_squared_error = error2/len(x)
