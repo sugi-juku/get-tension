@@ -94,7 +94,7 @@ If you use Windows, you can run ```*.py``` with a double click.
     python3 get_tension_app.py
     ```
 
-    If it doesn't respond to your racket string sound, try to increase the sensitivity of the microphone.
+    If it doesn't work well, try to increase the sensitivity of the microphone.
 
     If you use Mac OS X, you can run ```get_tension.command``` with a double click.
 
@@ -162,6 +162,12 @@ If you use Windows, you can run ```*.py``` with a double click.
         python3 plt_data.py
         ```
 
+        If you use Windows.
+
+        ```
+        py -m plt_data
+        ```
+
     - plt_tension_change.py
 
         You can see a graph of tension change from wavfile in target directory.
@@ -169,6 +175,12 @@ If you use Windows, you can run ```*.py``` with a double click.
 
         ```
         python3 plt_tension_change.py tmp/sample
+        ```
+
+        If you use Windows.
+
+        ```
+        py -m plt_tension_change tmp/sample
         ```
 
     - fit_lr.py
