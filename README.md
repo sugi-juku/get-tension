@@ -100,6 +100,8 @@ If you use Windows, you can run ```*.py``` with a double click.
 
 - CUI version
 
+    If you use Windows, replace ```python3``` with ```py``` .
+
     - get_tension_data_append.py
 
         If you have just finished stringing, use this version.
@@ -162,12 +164,6 @@ If you use Windows, you can run ```*.py``` with a double click.
         python3 plt_data.py
         ```
 
-        If you use Windows.
-
-        ```
-        py -m plt_data
-        ```
-
     - plt_tension_change.py
 
         You can see a graph of tension change from wavfile in target directory.
@@ -175,12 +171,6 @@ If you use Windows, you can run ```*.py``` with a double click.
 
         ```
         python3 plt_tension_change.py tmp/sample
-        ```
-
-        If you use Windows.
-
-        ```
-        py -m plt_tension_change tmp/sample
         ```
 
     - fit_lr.py
