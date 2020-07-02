@@ -33,7 +33,7 @@ Now, I love Python, too.
 
 ## Requirement
 
-Maybe it works on Python 3.7.X and 3.8.X.
+Maybe it works on Python 3.6 or higher.
 
 ### Tested environment
 
@@ -45,7 +45,7 @@ Maybe it works on Python 3.7.X and 3.8.X.
 
     * pytyon 3.7.5
 
-* Windows 10
+* Windows 10 Home
 
     * python 3.8.3
 
@@ -73,9 +73,6 @@ Install Python3.8.X for Windows from https://www.python.org/downloads/ .
 If your PC is x86-64, download  ```Windows x86-64 executable installer``` .
 
 Then install python modules. Double click ```install_python_modules_win.bat``` .
-
-NOTE: Official PyAudio can\'t install on Python 3.7 or higher, then install PyAudio for win from https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio . If you use Python 3.8 on x86-64, select PyAudio‑0.2.11‑cp38‑cp38‑win_amd64.whl . 
-This includes this file, you don\'t have to download it.
 
 ### Ubuntu
 
