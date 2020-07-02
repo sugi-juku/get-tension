@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 # coding: utf-8
 
-import wave
 import numpy as np
 import sys
 import os
+import soundfile as sfile
 # import matplotlib.pyplot as plt
 
 os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
 
 import string_data as sda
-import string_rec as sre
 
 class StringFft:
     # Max amplitude
@@ -24,8 +23,6 @@ class StringFft:
         sarg = sda.StringArg(wavfile)
         stype = sarg.get_stype()
 
-        RATE = sre.RATE
-
         # Frequency Search range
         x_smin = {}
         x_smin["B"] = 1000
@@ -34,12 +31,7 @@ class StringFft:
         x_smax["B"] = 1250
         x_smax["T"] = 750
 
-        wf = wave.open(wavfile, "r")
-        buf = wf.readframes(wf.getnframes())
-        wf.close()
-
-        # convert binary to int16
-        data = np.frombuffer(buf, dtype="int16")
+        data, samplerate = sfile.read(wavfile)
 
         # If you want to plot data, import matplotlib
         # plt.plot(data)
@@ -47,7 +39,7 @@ class StringFft:
         # plt.show()
 
         fft_data = np.abs(np.fft.fft(data))
-        freq_data = np.fft.fftfreq(data.shape[0], d=1.0/RATE)
+        freq_data = np.fft.fftfreq(data.shape[0], d=1.0/samplerate)
 
         # If you want to plot data, import matplotlib
         # plt.plot(freq_data, fft_data)
