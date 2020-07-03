@@ -19,6 +19,11 @@ class StringLr:
     lrcal_y = []
     error = []
 
+    # Mean Absolute Error
+    maerror = 0.0
+    # Mean Squared Error
+    mserror = 0.0
+
     lr_header = {}
     lr_header["B"] = ["Tension","F0","Gauge"]
     lr_header["T"] = ["Tension","F0","Gauge","Density","FaceSize","PatternNumber"]
@@ -80,6 +85,20 @@ class StringLr:
         with open(self.lrcoef_file[self.stype], "w") as csvlf:
             writer = csv.writer(csvlf)
             writer.writerow(lr_coef)
+
+        # Caluculate MAE and MSE
+        sum_error = 0.0
+        sum_error2 = 0.0
+        self.lrcal_y = []
+        self.error = []
+        for i,xlist in enumerate(self.x):
+            self.lrcal_y.append(self.get_lrcal_tension(xlist))
+            error = self.y[i] - self.lrcal_y[i]
+            self.error.append(error)
+            sum_error += abs(error)
+            sum_error2 += error*error
+            self.maerror = sum_error/len(self.x)
+            self.mserror = sum_error2/len(self.x)
 
     def get_lrdata_xlist(self, sdata):
         if self.stype == "B":
@@ -169,20 +188,12 @@ class StringLr:
             return tension
 
     def get_mean_squared_error(self):
-        if len(self.x) == 0:
-            return 0.0
-        else:
-            sum_error2 = 0.0
-            self.lrcal_y = []
-            self.error = []
-            for i,xlist in enumerate(self.x):
-                self.lrcal_y.append(self.get_lrcal_tension(xlist))
-                error = self.y[i] - self.lrcal_y[i]
-                self.error.append(error)
-                sum_error2 += error*error
-            return sum_error2/len(self.x)
-            
-            
+        return self.mserror
+
+    def get_mean_absolute_error(self):
+        return self.maerror
+
+
 class StringLr00(StringLr):
     lrdata_file = {}
     lrdata_file["B"] = "lrdata00_b.csv"
@@ -289,19 +300,23 @@ if __name__ == "__main__":
     slr = StringLr("B")
     slr.fit()
     print("Badminton")
+    print("Mean absolute error = " + str(slr.get_mean_absolute_error()))
     print("Mean squared error = " + str(slr.get_mean_squared_error()))
 
     slr = StringLr("T")
     slr.fit()
     print("Tennis")
+    print("Mean absolute error = " + str(slr.get_mean_absolute_error()))
     print("Mean squared error = " + str(slr.get_mean_squared_error()))
 
     slr = StringLr00("B")
     slr.fit()
     print("Badminton00")
+    print("Mean absolute error = " + str(slr.get_mean_absolute_error()))
     print("Mean squared error = " + str(slr.get_mean_squared_error()))
 
     slr = StringLr00("T")
     slr.fit()
     print("Tennis00")
+    print("Mean absolute error = " + str(slr.get_mean_absolute_error()))
     print("Mean squared error = " + str(slr.get_mean_squared_error()))
