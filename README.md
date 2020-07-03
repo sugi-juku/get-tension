@@ -22,8 +22,8 @@ The work is as follows.
 1. I tried to add GUI using tkinter.
 1. GUI version worked on Mac OS X Python 2.7.16.
 1. It worked on Mac OS X Python 3.7.7.
-1. It worked on Ubuntu Python 3.7.5.
 1. Apple says "Use of Python 2.7 isn\'t recommended as this version is include in macOS for compatibility with legacy software.". So I decided to use Python3.
+1. It worked on Ubuntu Python 3.7.5.
 1. It worked on Windows 10 Python 3.8.3.
 
 I\'m both a stringer and a programmer.
