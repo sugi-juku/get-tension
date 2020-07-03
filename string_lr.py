@@ -23,6 +23,8 @@ class StringLr:
     maerror = 0.0
     # Mean Squared Error
     mserror = 0.0
+    # R2 Score
+    r2_score = 0.0
 
     lr_header = {}
     lr_header["B"] = ["Tension","F0","Gauge"]
