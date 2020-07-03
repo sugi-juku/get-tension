@@ -10,7 +10,7 @@ It is written in Python.
 ## Description
 
 My stringing shop was closed 2 months for COVID-19 in Spring 2020.
-Then I decided to develop an application getting racket string tension from sound.
+So I decided to develop an application getting racket string tension from sound.
 
 The work is as follows.
 
