@@ -31,7 +31,7 @@ class StringFft:
         x_smax["B"] = 1250
         x_smax["T"] = 750
 
-        data, samplerate = sfile.read(wavfile)
+        data, fs = sfile.read(wavfile)
 
         # If you want to plot data, import matplotlib
         # plt.plot(data)
@@ -39,7 +39,7 @@ class StringFft:
         # plt.show()
 
         fft_data = np.abs(np.fft.fft(data))
-        freq_data = np.fft.fftfreq(data.shape[0], d=1.0/samplerate)
+        freq_data = np.fft.fftfreq(data.shape[0], d=1.0/fs)
 
         # If you want to plot data, import matplotlib
         # plt.plot(freq_data, fft_data)
