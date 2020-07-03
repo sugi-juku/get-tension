@@ -86,19 +86,24 @@ class StringLr:
             writer = csv.writer(csvlf)
             writer.writerow(lr_coef)
 
-        # Caluculate MAE and MSE
+        # Caluculate MAE, MSE, R2
         sum_error = 0.0
         sum_error2 = 0.0
+        sum_error2_avg = 0.0
         self.lrcal_y = []
         self.error = []
+        y_avg = sum(self.y)/len(self.y)
         for i,xlist in enumerate(self.x):
             self.lrcal_y.append(self.get_lrcal_tension(xlist))
-            error = self.y[i] - self.lrcal_y[i]
+            error = self.y[i]-self.lrcal_y[i]
+            error_avg = self.y[i]-y_avg
             self.error.append(error)
             sum_error += abs(error)
             sum_error2 += error*error
+            sum_error2_avg += error_avg*error_avg
             self.maerror = sum_error/len(self.x)
             self.mserror = sum_error2/len(self.x)
+            self.r2_score = 1-sum_error2/sum_error2_avg
 
     def get_lrdata_xlist(self, sdata):
         if self.stype == "B":
@@ -192,6 +197,9 @@ class StringLr:
 
     def get_mean_absolute_error(self):
         return self.maerror
+
+    def get_r2_score(self):
+        return self.r2_score
 
 
 class StringLr00(StringLr):
@@ -302,21 +310,25 @@ if __name__ == "__main__":
     print("Badminton")
     print("Mean absolute error = " + str(slr.get_mean_absolute_error()))
     print("Mean squared error = " + str(slr.get_mean_squared_error()))
+    print("R2 score = " + str(slr.get_r2_score()))
 
     slr = StringLr("T")
     slr.fit()
     print("Tennis")
     print("Mean absolute error = " + str(slr.get_mean_absolute_error()))
     print("Mean squared error = " + str(slr.get_mean_squared_error()))
+    print("R2 score = " + str(slr.get_r2_score()))
 
     slr = StringLr00("B")
     slr.fit()
     print("Badminton00")
     print("Mean absolute error = " + str(slr.get_mean_absolute_error()))
     print("Mean squared error = " + str(slr.get_mean_squared_error()))
+    print("R2 score = " + str(slr.get_r2_score()))
 
     slr = StringLr00("T")
     slr.fit()
     print("Tennis00")
     print("Mean absolute error = " + str(slr.get_mean_absolute_error()))
     print("Mean squared error = " + str(slr.get_mean_squared_error()))
+    print("R2 score = " + str(slr.get_r2_score()))
