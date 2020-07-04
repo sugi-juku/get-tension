@@ -28,7 +28,7 @@ class StringFft:
         x_smin["B"] = 1000
         x_smin["T"] = 450
         x_smax = {}
-        x_smax["B"] = 1250
+        x_smax["B"] = 1280
         x_smax["T"] = 750
 
         data, fs = sfile.read(wavfile)
