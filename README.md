@@ -105,7 +105,7 @@ If you use Windows, you can run ```*.py``` with a double click.
 
     - get_tension_data_append.py
 
-        If you have just finished stringing, use this version.
+        If you have just finished stringing, use this.
         Data is appended to training data.
         For example.
 
@@ -115,7 +115,7 @@ If you use Windows, you can run ```*.py``` with a double click.
         ```
     - get_tension_data_noappend.py
 
-        If you want to get current racket string tension, use this version.
+        If you want to get current racket string tension, use this.
         For example.
 
         ```
@@ -182,7 +182,7 @@ If you use Windows, you can run ```*.py``` with a double click.
     - remake_stdata.py
 
         You can remake training data from wavfiles.
-        Normally you don\'t have to use it.
+        Normally you don\'t have to use this.
 
 
 ## Author
