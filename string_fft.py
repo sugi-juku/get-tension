@@ -34,8 +34,10 @@ class StringFft:
         data, fs = sfile.read(wavfile)
 
         # If you want to plot data, import matplotlib
-        # plt.plot(data)
-        # plt.grid()
+        # time = []
+        # for i,val in enumerate(data):
+        #     time.append(i/fs)
+        # plt.plot(time, data)
         # plt.show()
 
         fft_data = np.abs(np.fft.fft(data))
