@@ -3,6 +3,7 @@
 For people who love Tennis and Badminton.
 You can get racket string tension from sound by hitting your racket face.
 AI learns sound just finished stringing, and predicts current racket string tension.
+It works on Mac, Windows, Linux.
 It is written in Python.
 
 ![python powered](https://raw.githubusercontent.com/sugi-juku/get-tension/master/python-powered-w-200x80.png)
@@ -39,13 +40,13 @@ Maybe it works on Python 3.6 or higher.
 
 * Mac OS X  Mojave 10.14.6 (My development environment)
 
-    * python 3.7.7 (Homebrew)
+    * python 3.7.7 - 3.7.8 (Homebrew)
 
-* Ubuntu 19.10
+* Ubuntu 19.10 - 20.04
 
-    * pytyon 3.7.5
+    * pytyon 3.7.5 - 3.8.2
 
-* Windows 10 Home
+* Windows 10 Home 1909
 
     * python 3.8.3
 
