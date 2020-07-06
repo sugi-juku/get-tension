@@ -308,28 +308,28 @@ class StringLr00(StringLr):
 
 if __name__ == "__main__":
     slr = StringLr("B")
-    slr.fit()
+    slr.fit(write_lrdata=0)
     print("Badminton")
     print("Mean absolute error = " + str(slr.get_mean_absolute_error()))
     print("Mean squared error = " + str(slr.get_mean_squared_error()))
     print("Coefficient of determination = " + str(slr.get_r2_score()))
 
     slr = StringLr("T")
-    slr.fit()
+    slr.fit(write_lrdata=0)
     print("Tennis")
     print("Mean absolute error = " + str(slr.get_mean_absolute_error()))
     print("Mean squared error = " + str(slr.get_mean_squared_error()))
     print("Coefficient of determination = " + str(slr.get_r2_score()))
 
     slr = StringLr00("B")
-    slr.fit()
+    slr.fit(write_lrdata=0)
     print("Badminton00")
     print("Mean absolute error = " + str(slr.get_mean_absolute_error()))
     print("Mean squared error = " + str(slr.get_mean_squared_error()))
     print("Coefficient of determination = " + str(slr.get_r2_score()))
 
     slr = StringLr00("T")
-    slr.fit()
+    slr.fit(write_lrdata=0)
     print("Tennis00")
     print("Mean absolute error = " + str(slr.get_mean_absolute_error()))
     print("Mean squared error = " + str(slr.get_mean_squared_error()))
