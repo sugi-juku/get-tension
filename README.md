@@ -71,7 +71,7 @@ Then, Install python modules.
 ### Windows
 
 Install Python3.8.X for Windows from https://www.python.org/downloads/ .
-If your PC is x86-64, download  ```Windows x86-64 executable installer``` .
+If your PC is x86-64, download and install  ```Windows x86-64 executable installer``` .
 
 Then install python modules. Double click ```install_python_modules_win.bat``` .
 
