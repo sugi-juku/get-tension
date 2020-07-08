@@ -35,7 +35,7 @@ Now, I love Python, too.
 ## Requirement
 
 Maybe it works on Python 3.6 or higher.
-
+It works on Mac, Windows, Linux.
 ### Tested environment
 
 * Mac OS X  Mojave 10.14.6 (My development environment)
