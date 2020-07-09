@@ -7,7 +7,7 @@ Released 2020-07-03
 - Worked on Ubuntu 20.04 Python 3.8.2
 - Worked on Mac OS X 10.14.6 Python 3.7.8
 - Replaced sound modules pyaudio and wav with sounddevice and soundfile
-- Changed __file__ to sys.argv[0]
+- Changed \_\_file\_\_ to sys.argv[0]
 - Modified installer
 - Added get_mean_absolute_error()
 - Added get_r2_score()
