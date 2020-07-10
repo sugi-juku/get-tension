@@ -1,4 +1,4 @@
-### Version 1.2
+# Version 1.2
 
 Released 2020-07-03
 
@@ -12,7 +12,7 @@ Released 2020-07-03
 - Added get_mean_absolute_error()
 - Added get_r2_score()
 
-### Version 1.1
+# Version 1.1
 
 Released 2020-06-24
 
@@ -22,7 +22,7 @@ Released 2020-06-24
 - Added class StringLr00
 - Added get_mean_squared_error()
 
-### Version 1.0
+# Version 1.0
 
 Released 2020-06-17
 
