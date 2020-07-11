@@ -1,8 +1,8 @@
 # Get Tension
 
 For people who love Tennis and Badminton.
-You can get racket string tension from sound by hitting your racket face.
-AI learns sound just finished stringing, and predicts current racket string tension.
+By using this application with your PC, You can get racket string tension from sound by hitting your racket face.
+AI that has learned sound just finished stringing predicts current racket string tension.
 It works on Mac, Windows, Linux.
 It is written in Python.
 
@@ -10,14 +10,19 @@ It is written in Python.
 
 ## Description
 
-My stringing shop was closed 2 months for COVID-19 in Spring 2020.
+My stringing shop was closed about 2 months for COVID-19 in Spring 2020.
 So I decided to develop an application getting racket string tension from sound.
+
+There is also a method of measuring Dynamic Tension (DT) with a dedicated measuring machine.
+But when you order stringing, you can only specify the tension of the stringing machine.
+So I want to know what the tension of the stringing machine is now.
 
 The work is as follows.
 
+1. I considered the elements necessary for learning AI. For example, string gauge, material, string pattern, face size, etc.
 1. I recorded racket string sound just finished stringing and gathered training data.
 1. I got fundamental frequency from sound using FFT.
-1. I tried to let AI learn training data using scikit-learn Linear Regression.
+1. I tried to let AI learn training data set using scikit-learn Linear Regression.
 1. I tried to design good classes.
 1. CUI version worked on Mac OS X Python 2.7.16.
 1. I tried to add GUI using tkinter.
@@ -25,10 +30,10 @@ The work is as follows.
 1. It worked on Mac OS X Python 3.7.7.
 1. Apple says "Use of Python 2.7 isn\'t recommended as this version is include in macOS for compatibility with legacy software.". So I decided to use Python3.
 1. It worked on Ubuntu Python 3.7.5.
-1. It worked on Windows 10 Python 3.8.3.
+1. It worked on Windows 10 Home Python 3.8.3.
 
 I\'m both a stringer and a programmer.
-I used to develop web applications often with PHP.
+I used to develop web applications often with PHP on Linux.
 This is my first Python application.
 Now, I love Python, too.
 
@@ -106,7 +111,7 @@ If you use Windows, you can run ```*.py``` with a double click.
     - get_tension_data_append.py
 
         If you have just finished stringing, use this.
-        Data is appended to training data.
+        Data is appended to training data set.
         For example.
 
         ```
@@ -158,7 +163,7 @@ If you use Windows, you can run ```*.py``` with a double click.
 
     - plt_data.py
 
-        You can see graphs of training data.
+        You can see graphs of training data set.
         This includes fit_lr.py.
 
         ```
@@ -176,12 +181,12 @@ If you use Windows, you can run ```*.py``` with a double click.
 
     - fit_lr.py
 
-        Linear model is fitted by training data.
+        Linear model is fitted by training data set.
         It is good to run this regularly using cron.
 
     - remake_stdata.py
 
-        You can remake training data from wavfiles.
+        You can remake training data set from wavfiles.
         Normally you don\'t have to use this.
 
 
