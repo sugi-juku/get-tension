@@ -106,6 +106,9 @@ If you use Windows, you can run ```*.py``` with a double click.
 
 - CUI version
 
+    If you are running a stringing shop or home stringer, try CUI version.
+    Otherwise you don\'t have to use CUI version.
+
     If you use Windows, replace ```python3``` with ```py``` .
 
     - get_tension_data_append.py
