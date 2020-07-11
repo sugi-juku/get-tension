@@ -2,9 +2,8 @@
 
 テニスとバドミントン愛好家の皆さんへ。
 パソコンでこのアプリケーションを使うと、ラケット面を叩いた音からラケットのテンションを測定できます。
-張った直後の音を学習したAIが現在のラケットのテンションを推定します。
-Mac, Windows, Linuxで動作し、
-Pythonで書かれています。
+張った直後の音を学習したAIが、現在のラケットのテンションを推定します。
+Mac, Windows, Linuxで動作し、Pythonで書かれています。
 
 ![python powered](https://raw.githubusercontent.com/sugi-juku/get-tension/master/python-powered-w-200x80.png)
 
@@ -39,7 +38,7 @@ Pythonで書かれています。
 
 ## Requirement
 
-Mac, Windows, LinuxのPython 3.6以上で動作すると思います。
+Mac, Windows, LinuxのPython 3.6以上で動作します。
 
 ### 動作確認済みの環境
 

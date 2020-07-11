@@ -1,7 +1,7 @@
 # Get Tension
 
 For people who love Tennis and Badminton.
-By using this application with your PC, You can get racket string tension from sound by hitting your racket face.
+By using this application with your PC, you can get racket string tension from sound by hitting your racket face.
 AI that has learned sound just finished stringing predicts current racket string tension.
 It works on Mac, Windows, Linux.
 It is written in Python.
