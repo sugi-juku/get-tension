@@ -1,3 +1,5 @@
+- Added README.ja.md
+
 # Version 1.2
 
 Released 2020-07-03
