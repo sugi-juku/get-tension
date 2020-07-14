@@ -113,7 +113,7 @@ If you use Windows, you can run ```*.py``` with a double click.
 
     - get_tension_data_append.py
 
-        If you have just finished stringing, use this.
+        If you have just finished stringing, use this to get racket string tension.
         Data is appended to training data set.
         For example.
 
