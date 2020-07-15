@@ -19,7 +19,7 @@ So I want to know what the tension of the stringing machine is now.
 
 The work is as follows.
 
-1. I assumed that the sound just finished stringing showed the machine tension.
+1. I assumed that the racket string sound just finished stringing showed the machine tension.
 1. I considered the elements necessary for learning AI. For example, the sound of hitting racket face, string gauge, material, string pattern, face size, etc.
 1. I recorded racket string sounds just finished stringing and gathered training data.
 1. I got fundamental frequency from sounds using FFT.
