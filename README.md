@@ -2,7 +2,7 @@
 
 For people who love Tennis, Soft tennis and Badminton.
 You can get racket string tension from the sound by hitting your racket face.
-The AI that has learned sounds just finished stringing predicts current racket string tension.
+AI learns sounds just finished stringing and predicts current racket string tension.
 It works on Mac, Windows, Linux.
 It is written in Python.
 
