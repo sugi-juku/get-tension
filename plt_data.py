@@ -31,10 +31,13 @@ for key, name in sd.stdata_file.items():
     plt.xlabel("Frequency (Hz)")
     plt.ylabel("Tension (Lbs)")
     plt.scatter(x, y)
-    # plt.grid()
+    pf1 = np.polyfit(x, y, 1)
+    pf1_a = round(pf1[0], 3)
+    pf1_b = round(pf1[1], 3)
     func = np.poly1d(np.polyfit(x, y, 1))
     x.sort()
-    plt.plot(x, func(x), label="Polyfit y=ax+b")
+    pf1_str = f"y={pf1_a}x+{pf1_b}"
+    plt.plot(x, func(x), label=f"Polyfit {pf1_str}")
     plt.legend()
     plt.show()
 
@@ -50,7 +53,7 @@ for key, name in sd.stdata_file.items():
     print(mse_msg)
  
     # Show graph
-    plt.title(sd.sname[key] + " Polyfit y=ax+b Error")
+    plt.title(sd.sname[key] + f" Polyfit {pf1_str} Error")
     plt.xlabel("Error (Lbs)")
     plt.ylabel("Tension (Lbs)")
     plt.scatter(err, y, label=mse_msg)
