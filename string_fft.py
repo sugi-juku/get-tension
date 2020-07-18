@@ -22,14 +22,24 @@ class StringFft:
     def __init__(self, wavfile):
         sarg = sda.StringArg(wavfile)
         stype = sarg.get_stype()
+        tension = sarg.get_tension()
 
+        #
         # Frequency Search range
+        #
+        ADD_FREQ = 125
         x_smin = {}
         x_smin["B"] = 1000
         x_smin["T"] = 450
+        # Polyfit coef
+        pf_a = {}
+        pf_a["B"] = 0.037
+        pf_a["T"] = 0.077
+        pf_b = {}
+        pf_b["B"] = -18.0
+        pf_b["T"] = 2.2
         x_smax = {}
-        x_smax["B"] = 1280
-        x_smax["T"] = 750
+        x_smax[stype] = (tension-pf_b[stype])/pf_a[stype]+ADD_FREQ
 
         data, fs = sfile.read(wavfile)
 
