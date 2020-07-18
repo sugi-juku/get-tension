@@ -19,24 +19,29 @@ for key, name in sd.stdata_file.items():
         reader = csv.reader(csvf)
         header = next(reader)
         # print(header)
+        i = 0
         for row in reader:
             sdata = sd.StringData(row)
+            i += 1
             # Frequency
             x.append(sdata.get_f0())
             # Tension
             y.append(sdata.get_tension())
-
+        sample_n = int(i/2)
     # Show graph
-    plt.title(sd.sname[key] + " Stringing Data")
+    plt.title(sd.sname[key] + " Stringing Data " + str(sample_n))
     plt.xlabel("Frequency (Hz)")
     plt.ylabel("Tension (Lbs)")
     plt.scatter(x, y)
     pf1 = np.polyfit(x, y, 1)
-    pf1_a = round(pf1[0], 3)
+    pf1_a = round(pf1[0], 4)
     pf1_b = round(pf1[1], 3)
+    if pf1_b < 0:
+        pf1_str = f"y={pf1_a}x{pf1_b}"
+    else:
+        pf1_str = f"y={pf1_a}x+{pf1_b}"
     func = np.poly1d(np.polyfit(x, y, 1))
     x.sort()
-    pf1_str = f"y={pf1_a}x+{pf1_b}"
     plt.plot(x, func(x), label=f"Polyfit {pf1_str}")
     plt.legend()
     plt.show()
