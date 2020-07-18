@@ -29,7 +29,7 @@ class StringFft:
         #
         ADD_FREQ = 125
         x_smin = {}
-        x_smin["B"] = 1000
+        x_smin["B"] = 950
         x_smin["T"] = 450
         # Polyfit coef
         pf_a = {}
