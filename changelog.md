@@ -1,4 +1,6 @@
+- Some bugfixes
 - Added README.ja.md
+- Modified about FFT search range
 
 # Version 1.2
 
