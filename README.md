@@ -97,7 +97,7 @@ Install python and python modules.
 
 If you use Windows, you can run ```*.py``` with a double click.
 
-### GUI version
+- GUI version
 
     It is easy to use.
 
@@ -109,7 +109,7 @@ If you use Windows, you can run ```*.py``` with a double click.
 
     If you use Mac OS X, you can run ```get_tension.command``` with a double click.
 
-### CUI version
+- CUI version
 
     If you are a stringer, try CUI version.
     Otherwise you don\'t have to use CUI version.
