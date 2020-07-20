@@ -20,13 +20,13 @@ So I want to know what the tension of the stringing machine is now.
 The work is as follows.
 
 1. I assumed that the racket string sound just finished stringing showed the machine tension.
-1. I considered the elements necessary for learning AI. For example, the sound of hitting racket face, string gauge, material, string pattern, face size, etc.
+1. I considered the elements necessary for learning AI. For example, the sound hitting racket face, string gauge, string material, stringing pattern, racket face size, etc.
 1. I recorded racket string sounds just finished stringing and gathered training data.
-1. I got fundamental frequency from sounds using FFT.
-1. I tried to let AI learn training data set using scikit-learn Linear Regression.
+1. I got fundamental frequency from sounds by FFT.
+1. I tried to let AI learn training data set by scikit-learn Linear Regression.
 1. I tried to design good classes.
 1. CUI version worked on Mac OS X Python 2.7.16.
-1. I tried to add GUI using tkinter.
+1. I tried to add GUI with tkinter.
 1. GUI version worked on Mac OS X Python 2.7.16.
 1. It worked on Mac OS X Python 3.7.7.
 1. Apple says "Use of Python 2.7 isn\'t recommended as this version is include in macOS for compatibility with legacy software.". So I decided to use Python3.
@@ -58,7 +58,11 @@ It works on Mac, Windows, Linux.
 
 ## Installation
 
-### Mac OS X
+Download from https://github.com/sugi-juku/get-tension and deploy your PC.
+
+### Python and Python modules
+
+#### Mac OS X
 
 Install Homebrew from https://brew.sh/
 
@@ -74,14 +78,14 @@ Then, Install python modules.
 ./install_python_modules_mac.sh
 ```
 
-### Windows
+#### Windows
 
 Install Python3.8.X for Windows from https://www.python.org/downloads/ .
 If your PC is x86-64, download and install  ```Windows x86-64 executable installer``` .
 
 Then install python modules. Double click ```install_python_modules_win.bat``` .
 
-### Ubuntu
+#### Ubuntu
 
 Install python and python modules.
 
@@ -93,7 +97,7 @@ Install python and python modules.
 
 If you use Windows, you can run ```*.py``` with a double click.
 
-- GUI version
+### GUI version
 
     It is easy to use.
 
@@ -105,7 +109,7 @@ If you use Windows, you can run ```*.py``` with a double click.
 
     If you use Mac OS X, you can run ```get_tension.command``` with a double click.
 
-- CUI version
+### CUI version
 
     If you are a stringer, try CUI version.
     Otherwise you don\'t have to use CUI version.

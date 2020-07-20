@@ -57,7 +57,11 @@ Mac, Windows, LinuxのPython 3.6以上で動作します。
 
 ## Installation
 
-### Mac OS X
+https://github.com/sugi-juku/get-tension からダウンロードして、好きな場所に配置してください。
+
+### Python and Python modules
+
+#### Mac OS X
 
 https://brew.sh/ からHomebrewをインストールします。
 
@@ -73,14 +77,14 @@ brew install python
 ./install_python_modules_mac.sh
 ```
 
-### Windows
+#### Windows
 
 https://www.python.org/downloads/ からWindows版Python 3.8.Xをインストールします。
 もしあなたのパソコンがx86-64系なら、```Windows x86-64 executable installer``` 
 をダウンロードしてインストールします。
 次にPythonのモジュールをインストールします。```install_python_modules_win.bat```をダブルクリックして実行してください。 
 
-### Ubuntu
+#### Ubuntu
 
 PythonとPythonのモジュールをインストールします。
 
@@ -92,7 +96,7 @@ PythonとPythonのモジュールをインストールします。
 
 Windowsを使っている場合は ```*.py``` ファイルをダブルクリックで実行できます。
 
-- GUI版
+### GUI版
 
     簡単に使えます。
 
@@ -104,7 +108,7 @@ Windowsを使っている場合は ```*.py``` ファイルをダブルクリッ�
 
     Macを使っているなら ```get_tension.command``` をダブルクリックしても実行できます。
 
-- CUI版
+### CUI版
 
     あなたがストリンガーなら、CUI版も使ってみてください。
     そうでなければ使う必要はありません。
