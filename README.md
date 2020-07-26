@@ -25,10 +25,10 @@ The work is as follows.
 1. I got fundamental frequency from sounds by FFT.
 1. I tried to let AI learn training data set by scikit-learn Linear Regression.
 1. I tried to design good classes.
-1. CUI version worked on Mac OS X Python 2.7.16.
+1. CUI version worked on macOS Python 2.7.16.
 1. I tried to add GUI with tkinter.
-1. GUI version worked on Mac OS X Python 2.7.16.
-1. It worked on Mac OS X Python 3.7.7.
+1. GUI version worked on macOS Python 2.7.16.
+1. It worked on macOS Python 3.7.7.
 1. Apple says "Use of Python 2.7 isn\'t recommended as this version is include in macOS for compatibility with legacy software.". So I decided to use Python3.
 1. It worked on Ubuntu Python 3.7.5.
 1. It worked on Windows 10 Home Python 3.8.3.
@@ -44,7 +44,7 @@ Maybe it works on Python 3.6 or higher.
 It works on Mac, Windows, Linux.
 ### Tested environment
 
-* Mac OS X  Mojave 10.14.6 (My development environment)
+* macOS 10.14.6 - 10.15.6 (My development environment)
 
     * python 3.7.7 - 3.7.8 (Homebrew)
 
@@ -62,7 +62,7 @@ Download from https://github.com/sugi-juku/get-tension and deploy your PC.
 
 ### Python and Python modules
 
-#### Mac OS X
+#### macOS
 
 Install Homebrew from https://brew.sh/
 
@@ -107,7 +107,7 @@ If you use Windows, you can run ```*.py``` with a double click.
 
     If it doesn't work well, try to increase the sensitivity of the microphone.
 
-    If you use Mac OS X, you can run ```get_tension.command``` with a double click.
+    If you use macOS, you can run ```get_tension.command``` with a double click.
 
 - CUI version
 

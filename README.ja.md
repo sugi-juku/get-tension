@@ -24,10 +24,10 @@ Mac, Windows, Linuxで動作し、Pythonで書かれています。
 1. FFTを使って基本周波数を得ました。
 1. Scikit-Learnの線形回帰モデルを使って、AIに学習データを学習させました。
 1. 良いクラスを設計してみました。
-1. CUI版がMac OS X Python 2.7.16で動作しました。
+1. CUI版がmacOS Python 2.7.16で動作しました。
 1. tkinterを使ってGUI版を開発してみました。
-1. GUI版がMac OS X Python 2.7.16で動作しました。
-1. Mac OS X Python 3.7.7で動作しました。
+1. GUI版がmacOS Python 2.7.16で動作しました。
+1. macOS Python 3.7.7で動作しました。
 1. Appleは言っています。「Python 2.7を使うのはお勧めできません。このバージョンは過去のソフトウェアとの互換性のために含まれています。」そこで私はPython3を使うことにしました。
 1. Ubuntu Python 3.7.5で動作しました。
 1. Windows 10 Home Python 3.8.3で動作しました。
@@ -43,7 +43,7 @@ Mac, Windows, LinuxのPython 3.6以上で動作します。
 
 ### 動作確認済みの環境
 
-* Mac OS X  Mojave 10.14.6 (私の開発環境)
+* macOS 10.14.6 - 10.15.6 (私の開発環境)
 
     * python 3.7.7 - 3.7.8 (Homebrew)
 
@@ -61,7 +61,7 @@ https://github.com/sugi-juku/get-tension からダウンロードして、好き
 
 ### Python and Python modules
 
-#### Mac OS X
+#### macOS
 
 https://brew.sh/ からHomebrewをインストールします。
 
@@ -106,7 +106,7 @@ Windowsを使っている場合は ```*.py``` ファイルをダブルクリッ�
 
     上手く動かない場合は、マイクの感度を上げてみてください。
 
-    Macを使っているなら ```get_tension.command``` をダブルクリックしても実行できます。
+    macOSを使っているなら ```get_tension.command``` をダブルクリックしても実行できます。
 
 - CUI版
 
