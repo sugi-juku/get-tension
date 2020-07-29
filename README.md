@@ -46,7 +46,7 @@ It works on Mac, Windows, Linux.
 
 * macOS 10.14.6 - 10.15.6 (My development environment)
 
-    * python 3.7.7 - 3.7.8 (Homebrew)
+    * python 3.7.7 - 3.8.5
 
 * Ubuntu 19.10 - 20.04
 
@@ -64,13 +64,9 @@ Download from https://github.com/sugi-juku/get-tension and deploy your PC.
 
 #### macOS
 
-Install Homebrew from https://brew.sh/
+Install Python3.X for Mac OS X from https://www.python.org/downloads/ .
 
-Then, install Python3 with Homebrew.
-
-```
-brew install python
-```
+Then double ckick ```Update Shell Profile.command``` in installed directory.
 
 Then, Install python modules.
 
@@ -80,7 +76,7 @@ Then, Install python modules.
 
 #### Windows
 
-Install Python3.8.X for Windows from https://www.python.org/downloads/ .
+Install Python3.X for Windows from https://www.python.org/downloads/ .
 If your PC is x86-64, download and install  ```Windows x86-64 executable installer``` .
 
 Then install python modules. Double click ```install_python_modules_win.bat``` .

@@ -45,7 +45,7 @@ Mac, Windows, LinuxのPython 3.6以上で動作します。
 
 * macOS 10.14.6 - 10.15.6 (私の開発環境)
 
-    * python 3.7.7 - 3.7.8 (Homebrew)
+    * python 3.7.7 - 3.8.5
 
 * Ubuntu 19.10 - 20.04
 
@@ -63,13 +63,9 @@ https://github.com/sugi-juku/get-tension からダウンロードして、好き
 
 #### macOS
 
-https://brew.sh/ からHomebrewをインストールします。
+https://www.python.org/downloads/ からMac OS X版Python 3.Xをインストールします。
 
-次にHomebrewでPython3をインストールします。
-
-```
-brew install python
-```
+次にインストールされたディレクトリ内の```Update Shell Profile.command```をダブルクリックします。
 
 次にPythonのモジュールをインストールします。
 
@@ -79,7 +75,7 @@ brew install python
 
 #### Windows
 
-https://www.python.org/downloads/ からWindows版Python 3.8.Xをインストールします。
+https://www.python.org/downloads/ からWindows版Python 3.Xをインストールします。
 もしあなたのパソコンがx86-64系なら、```Windows x86-64 executable installer``` 
 をダウンロードしてインストールします。
 次にPythonのモジュールをインストールします。```install_python_modules_win.bat```をダブルクリックして実行してください。 
