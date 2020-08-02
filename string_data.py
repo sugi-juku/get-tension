@@ -150,7 +150,7 @@ class StringData(StringArg):
         self.set_data_from_filename(wavfile)
         sfft = sf.StringFft(wavfile)
         
-        self.row_list = []
+        self.row_list.clear()
         self.row_list.append(self.get_datetimestr())
         self.row_list.append(self.get_stype())
         self.row_list.append(self.get_tensionstr())
