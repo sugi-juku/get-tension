@@ -27,6 +27,9 @@ class StringRec:
     def get_file_list(self):
         return self.file_list
 
+    def init_file_list(self):
+        self.file_list = []
+
 if __name__ == "__main__":
     os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
 
