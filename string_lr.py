@@ -50,8 +50,8 @@ class StringLr:
                 writer = csv.writer(csvlf)
                 writer.writerow(self.lr_header[self.stype])
 
-        self.x=[]
-        self.y=[]
+        self.x.clear()
+        self.y.clear()
         with open(sda.stdata_file[self.stype]) as csvf:
             reader = csv.reader(csvf)
             header = next(reader)
@@ -92,8 +92,8 @@ class StringLr:
         sum_error = 0.0
         sum_error2 = 0.0
         sum_error2_avg = 0.0
-        self.lrcal_y = []
-        self.error = []
+        self.lrcal_y.clear()
+        self.error.clear()
         y_avg = sum(self.y)/len(self.y)
         for i,xlist in enumerate(self.x):
             self.lrcal_y.append(self.get_lrcal_tension(xlist))
