@@ -44,7 +44,7 @@ class StringDef:
             print(self.deffile[stype] + " is not found.")
             sys.exit()
 
-        self.sdef = {}
+        self.sdef.clear()
         cnt = {}
         fac = {}
         with open(self.deffile[stype]) as csvf:
@@ -87,8 +87,8 @@ class StringDef:
                 self.sdef[key][3] = self.get_factor_from_density(den_avg[mat], gauge)
 
         # Make sorted list
-        self.key_list = []
-        self.name_list = []
+        self.key_list.clear()
+        self.name_list.clear()
         for key, val in sorted(self.sdef.items()):
             self.key_list.append(key)
             self.name_list.append(val[0])
@@ -163,9 +163,10 @@ if __name__ == "__main__":
     os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
 
     sd = StringDef('T')
+    density = 1.22529565296734
     print(sd.get_key_from_name("GOSEN AK PRO 16"))
     for key, val in sorted(sd.get_dict().items()):
-        print(key, val, sd.get_density(key), sd.get_face_density(key, 98, "main", 16))
+        print(key, val, sd.get_density(key), sd.get_face_density(key, 98, "main", 16), sd.get_factor_from_density(density, sd.get_gauge(key)))
     sd = StringDef('B')
     density = 1.2273658265247267
     for key, val in sorted(sd.get_dict().items()):
