@@ -319,6 +319,7 @@ class StringLr01(StringLr00):
     lr_header["B"] = ["Tension","F0","MainGauge","CrossGauge"]
     lr_header["T"] = ["Tension","F0","MainGauge","MainDensity","CrossGauge","CrossDensity","FaceSize","MainPatN","CrossPatN","MainYoung","CrossYoung"]
     
+    # Young's Modulous (kg/mm2)
     young_mod = {}
     young_mod["N"] = 400
     young_mod["P"] = 1000
