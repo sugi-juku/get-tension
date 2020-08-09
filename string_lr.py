@@ -306,6 +306,88 @@ class StringLr00(StringLr):
             return tension
 
 
+class StringLr01(StringLr00):
+    lrdata_file = {}
+    lrdata_file["B"] = "lrdata01_b.csv"
+    lrdata_file["T"] = "lrdata01_t.csv"
+
+    lrcoef_file = {}
+    lrcoef_file["B"] = "lrcoef01_b.csv"
+    lrcoef_file["T"] = "lrcoef01_t.csv"
+
+    lr_header = {}
+    lr_header["B"] = ["Tension","F0","MainGauge","CrossGauge"]
+    lr_header["T"] = ["Tension","F0","MainGauge","MainDensity","CrossGauge","CrossDensity","FaceSize","MainPatN","CrossPatN","MainYoung","CrossYoung"]
+    
+    young_mod = {}
+    young_mod["N"] = 400
+    young_mod["P"] = 1000
+    young_mod["G"] = 450
+
+    def __init__(self, stype):
+        super().__init__(stype)
+
+    def get_lrdata_xlist_t(self, sdata):
+        sdef = sdf.StringDef(self.stype)
+        xlist=[]
+
+        # F0
+        xlist.append(float(sdata.get_f0()))
+
+        # Main String
+        msg=float(sdef.get_gauge(sdata.get_main_string()))
+        msd=float(sdef.get_density(sdata.get_main_string()))
+        msm=sdef.get_material(sdata.get_main_string())
+        # Cross String
+        if sdata.get_cross_string()=='':
+            csg=float(sdef.get_gauge(sdata.get_main_string()))
+            csd=float(sdef.get_density(sdata.get_main_string()))
+            csm=sdef.get_material(sdata.get_main_string())
+        else:
+            csg=float(sdef.get_gauge(sdata.get_cross_string()))
+            csd=float(sdef.get_density(sdata.get_cross_string()))
+            csm=sdef.get_material(sdata.get_cross_string())
+
+        # Main Gaug
+        xlist.append(msg)
+        # Main Density
+        xlist.append(msd)
+        # Cross Gauge
+        xlist.append(csg)
+        # Cross Density
+        xlist.append(csd)
+        # Face Size
+        xlist.append(float(sdata.get_size()))
+        # Main Pattern Number
+        xlist.append(sdata.get_main_pat_n())
+        # Cross Pattern Number
+        xlist.append(sdata.get_cross_pat_n())
+        # Main Young's modulouns
+        xlist.append(self.young_mod[msm])
+        # Cross Young's modulous
+        xlist.append(self.young_mod[csm])
+        return xlist
+
+    def get_lrcal_tension_t(self, xlist):
+        f0 = xlist[0]
+        msg = xlist[1]
+        msd = xlist[2]
+        csg = xlist[3]
+        csd = xlist[4]
+        size = xlist[5]
+        mpat_n = xlist[6]
+        cpat_n = xlist[7]
+        msm = xlist[8]
+        csm = xlist[9]
+        with open(self.lrcoef_file[self.stype]) as csvf:
+            reader = csv.reader(csvf, quoting=csv.QUOTE_NONNUMERIC)
+            coef = next(reader)
+            # print coef
+            tension = 0.0
+            tension = coef[0]*float(f0)+coef[1]*float(msg)+coef[2]*float(msd)+coef[3]*float(csg)+coef[4]*float(csd)+coef[5]*float(size)+coef[6]*float(mpat_n)+coef[7]*float(cpat_n)+coef[8]*float(msm)+coef[9]*float(csm)+coef[10]
+            return tension
+
+
 if __name__ == "__main__":
     slr = StringLr("B")
     slr.fit(write_lrdata=0)
@@ -331,6 +413,20 @@ if __name__ == "__main__":
     slr = StringLr00("T")
     slr.fit(write_lrdata=0)
     print("Tennis00")
+    print("Mean absolute error = " + str(slr.get_mean_absolute_error()))
+    print("Mean squared error = " + str(slr.get_mean_squared_error()))
+    print("Coefficient of determination = " + str(slr.get_r2_score()))
+
+    slr = StringLr01("B")
+    slr.fit(write_lrdata=0)
+    print("Badminton01")
+    print("Mean absolute error = " + str(slr.get_mean_absolute_error()))
+    print("Mean squared error = " + str(slr.get_mean_squared_error()))
+    print("Coefficient of determination = " + str(slr.get_r2_score()))
+
+    slr = StringLr01("T")
+    slr.fit(write_lrdata=1)
+    print("Tennis01")
     print("Mean absolute error = " + str(slr.get_mean_absolute_error()))
     print("Mean squared error = " + str(slr.get_mean_squared_error()))
     print("Coefficient of determination = " + str(slr.get_r2_score()))
