@@ -71,7 +71,11 @@ for key, name in sd.stdata_file.items():
     mean_squared_error = slr.get_mean_squared_error()
     mse_msg = "LR Mean squared error = " + str(round(mean_squared_error,2))
     print(mse_msg)
- 
+
+    for i,val in enumerate(slr.error):
+        if val > 5:
+            print(i+2,val)
+
     # Show graph
     plt.title(sd.sname[key] + " LR Error")
     plt.xlabel("Error (Lbs)")
