@@ -22,7 +22,7 @@ for filename in srec.get_file_list():
     sdata = sd.StringData()
     sdata.make_data(filename, cvs_append, "tmp.csv")
     stype = sdata.get_stype()
-    slr = sl.StringLr00(stype)
+    slr = sl.StringLr01(stype)
     xlist = slr.get_lrdata_xlist(sdata)
     tension.append(slr.get_lrcal_tension(xlist))
 

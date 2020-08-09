@@ -23,8 +23,8 @@ import string_lr as slr
 
 
 def run_click():
-    run_btn.grid_forget()
-    data_exp_label_text.set("Recording...")
+    # run_btn.grid_forget()
+    # data_exp_label_text.set("Recording...")
     messagebox.showinfo("Rcording", "After ckicking [OK] button,\nplease hit your racket face near PC.")
 
     sdef = sdf.StringDef(stype)
@@ -50,15 +50,17 @@ def run_click():
     if csv_append == 1:
         srec = src.StringRec(args)
 
-    data_exp_label_text.set("Calculating...")
+    # data_exp_label_text.set("Calculating...")
 
     tension = []
     for filename in srec.get_file_list():
         sdata = sda.StringData()
         sdata.make_data(filename, csv_append)
-        sl = slr.StringLr00(stype)
+        sl = slr.StringLr01(stype)
         xlist = sl.get_lrdata_xlist(sdata)
         tension.append(sl.get_lrcal_tension(xlist))
+
+    srec.init_file_list()
 
     rstr = ""
     total = 0.0
@@ -70,7 +72,8 @@ def run_click():
     rstr += "Average: " + str(round(avg, 2)) + " Lbs"
     messagebox.showinfo("Results", rstr)
 
-    main_win.destroy()
+    main_win.focus_force()
+    # main_win.destroy()
 
 def make_win():
     global main_win

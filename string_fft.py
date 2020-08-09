@@ -40,7 +40,7 @@ class StringFft:
         pf_b["T"] = 2.2
         x_smax = {}
         x_smax[stype] = (tension-pf_b[stype])/pf_a[stype]+ADD_FREQ
-
+ 
         data, fs = sfile.read(wavfile)
 
         # If you want to plot data, import matplotlib

@@ -37,7 +37,7 @@ for wavfile in files:
     sdata = sd.StringData()
     sdata.make_data(wavfile)
     stype = sdata.get_stype()
-    slr = sl.StringLr00(stype)
+    slr = sl.StringLr01(stype)
     xlist = slr.get_lrdata_xlist(sdata)
     if cnt == 0:
         dt0 = sdata.get_datetime()

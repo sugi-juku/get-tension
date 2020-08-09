@@ -66,7 +66,7 @@ for key, name in sd.stdata_file.items():
     plt.show()
 
     # LR Data
-    slr = sl.StringLr00(key)
+    slr = sl.StringLr01(key)
     slr.fit()
     mean_squared_error = slr.get_mean_squared_error()
     mse_msg = "LR Mean squared error = " + str(round(mean_squared_error,2))

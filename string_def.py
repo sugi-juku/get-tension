@@ -163,7 +163,8 @@ if __name__ == "__main__":
     os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
 
     sd = StringDef('T')
-    density = 1.22529565296734
+    # density = 1.22529565296734
+    density = 1.368248865886832
     print(sd.get_key_from_name("GOSEN AK PRO 16"))
     for key, val in sorted(sd.get_dict().items()):
         print(key, val, sd.get_density(key), sd.get_face_density(key, 98, "main", 16), sd.get_factor_from_density(density, sd.get_gauge(key)))
