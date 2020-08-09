@@ -320,6 +320,7 @@ class StringLr01(StringLr00):
     lr_header["T"] = ["Tension","F0","MainGauge","MainDensity","CrossGauge","CrossDensity","FaceSize","MainPatN","CrossPatN","MainYoung","CrossYoung"]
     
     # Young's Modulous (kg/mm2)
+    # 65(6), 411-416(1996), J.Seric.Sci.Jpn. Mechanical Properties of Silk String.
     young_mod = {}
     young_mod["N"] = 400
     young_mod["P"] = 1000
