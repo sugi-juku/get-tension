@@ -72,8 +72,13 @@ for key, name in sd.stdata_file.items():
     mse_msg = "LR Mean squared error = " + str(round(mean_squared_error,2))
     print(mse_msg)
 
+    if key == "T":
+        check_val = 4
+    else:
+        check_val = 2
+
     for i,val in enumerate(slr.error):
-        if val > 5:
+        if val > check_val:
             print(i+2,val)
 
     # Show graph
