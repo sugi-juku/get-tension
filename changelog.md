@@ -5,7 +5,7 @@ Released 2020-08-10
 - Some bugfixes
 - Added README.ja.md
 - Modified about FFT search range
-- Changed to use class StringLr01.
+- Changed to use class StringLr01
 - Added String Young's Modulus to Training Data
 
 # Version 1.2
