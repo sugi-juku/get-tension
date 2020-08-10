@@ -427,7 +427,7 @@ if __name__ == "__main__":
     print("Coefficient of determination = " + str(slr.get_r2_score()))
 
     slr = StringLr01("T")
-    slr.fit(write_lrdata=1)
+    slr.fit(write_lrdata=0)
     print("Tennis01")
     print("Mean absolute error = " + str(slr.get_mean_absolute_error()))
     print("Mean squared error = " + str(slr.get_mean_squared_error()))
