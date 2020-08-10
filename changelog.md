@@ -1,6 +1,12 @@
+# Version 1.3
+
+Released 2020-08-10
+
 - Some bugfixes
 - Added README.ja.md
 - Modified about FFT search range
+- Changed to use class StringLr01.
+- Added String Young's Modulous to Training Data
 
 # Version 1.2
 
@@ -23,7 +29,7 @@ Released 2020-06-24
 - Some bugfixes
 - Worked on Ubuntu 19.10 Python 3.7.5
 - Decided to use Python3
-- Added class StringLr00
+- Changed to use class StringLr00
 - Added get_mean_squared_error()
 
 # Version 1.0
