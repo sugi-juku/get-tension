@@ -319,7 +319,7 @@ class StringLr01(StringLr00):
     lr_header["B"] = ["Tension","F0","MainGauge","CrossGauge"]
     lr_header["T"] = ["Tension","F0","MainGauge","MainDensity","CrossGauge","CrossDensity","FaceSize","MainPatN","CrossPatN","MainYoung","CrossYoung"]
     
-    # Young's Modulous (kg/mm2)
+    # Young's Modulus (kg/mm2)
     # 65(6), 411-416(1996), J.Seric.Sci.Jpn. Mechanical Properties of Silk String.
     young_mod = {}
     young_mod["N"] = 400
@@ -364,9 +364,9 @@ class StringLr01(StringLr00):
         xlist.append(sdata.get_main_pat_n())
         # Cross Pattern Number
         xlist.append(sdata.get_cross_pat_n())
-        # Main Young's modulouns
+        # Main Young's modulus
         xlist.append(self.young_mod[msm])
-        # Cross Young's modulous
+        # Cross Young's modulus
         xlist.append(self.young_mod[csm])
         return xlist
 
