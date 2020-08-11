@@ -78,7 +78,7 @@ for key, name in sd.stdata_file.items():
         check_val = 2
 
     for i,val in enumerate(slr.error):
-        if val > check_val:
+        if abs(val) > check_val:
             print(i+2,val)
 
     # Show graph
