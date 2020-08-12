@@ -33,6 +33,8 @@ def get_argstr(stype, main_t, cross_t, main_s, cross_s, size, main_n, cross_n, d
         argstr += "-" + cross_s
     if size != "":
         argstr += "_" + size
+    else:
+        argstr += "_"
     if stype == "T":
         argstr += "_" + main_n + "-" + cross_n
     return argstr
@@ -77,7 +79,7 @@ class StringArg:
             self.size = self.arg_list[4]
 
         # String Pattern
-        if len(self.arg_list) > 4:
+        if len(self.arg_list) > 5:
             self.patternstr = self.arg_list[5]
             pat = self.arg_list[5].split("-")
             self.main_pat_n = int(pat[0])
@@ -183,7 +185,7 @@ class StringData(StringArg):
 if __name__ == "__main__":
     sarg = StringArg("wavfile/20200402181728_T_46_BABLAST125-YOPTF120_100_16-19.wav")
     print(sarg.arg_list, sarg.get_datetime(), sarg.get_patternstr())
-    sarg = StringArg("20200312192739_B_20_BG65TI.wav")
+    sarg = StringArg("20200312192739_B_20_BG65TI_56.wav")
     print(sarg.arg_list, sarg.get_datetime())
     print(get_argstr("T", "40", "", "GOMS16", "", "98", "16", "19", "20200426183610"))
     print(get_argstr("B", "25", "", "YOBG65TI", "", "", "", "", "20200426183610"))
