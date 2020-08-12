@@ -31,10 +31,7 @@ def get_argstr(stype, main_t, cross_t, main_s, cross_s, size, main_n, cross_n, d
     argstr += "_" + main_s
     if cross_s != "":
         argstr += "-" + cross_s
-    if size != "":
-        argstr += "_" + size
-    else:
-        argstr += "_"
+    argstr += "_" + size
     if stype == "T":
         argstr += "_" + main_n + "-" + cross_n
     return argstr
