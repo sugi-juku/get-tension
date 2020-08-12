@@ -37,7 +37,7 @@ def run_click():
 
     args = ""
     if stype == "B":
-        args = sda.get_argstr(stype, main_t_comb.get(), cross_t_comb.get(), main_s, cross_s, "", "", "")
+        args = sda.get_argstr(stype, main_t_comb.get(), cross_t_comb.get(), main_s, cross_s, size_comb.get(), "", "")
     if stype == "T":
         args = sda.get_argstr(stype, main_t_comb.get(), cross_t_comb.get(), main_s, cross_s, size_comb.get(), main_n_comb.get(), cross_n_comb.get())
 
@@ -83,7 +83,7 @@ def make_win():
     app_w = 530
     app_h = 290
     if stype == "B":
-        app_h = 200
+        app_h = 235
     main_win.geometry(get_center_geometry_str(win_w, win_h, app_w, app_h))
     main_win.title("Stringing DATA")
 
@@ -115,10 +115,17 @@ def make_win():
 
     if stype == "T":
         s_list = list(range(0,141))
-        size_label = ttk.Label(main_frm, text="Face Size (in2)")
-        global size_comb
-        size_comb = ttk.Combobox(main_frm, values=s_list, state="readonly", width=5)
-        size_comb.current(100)
+        s_current = 100
+    if stype == "B":
+        s_list = list(range(0,61))
+        s_current = 56
+
+    size_label = ttk.Label(main_frm, text="Face Size (in2)")
+    global size_comb
+    size_comb = ttk.Combobox(main_frm, values=s_list, state="readonly", width=5)
+    size_comb.current(s_current)
+
+    if stype == "T":
         pat_list = list(range(0,31))
         main_n_label = ttk.Label(main_frm, text="Main Number")
         global main_n_comb
@@ -149,9 +156,9 @@ def make_win():
     main_s_comb.grid(column=1, row=2, sticky=tk.W, padx=5)
     cross_s_label.grid(column=0, row=3)
     cross_s_comb.grid(column=1, row=3, sticky=tk.W, padx=5)
+    size_label.grid(column=0, row=4)
+    size_comb.grid(column=1, row=4, sticky=tk.W, padx=5)
     if stype == "T":
-        size_label.grid(column=0, row=4)
-        size_comb.grid(column=1, row=4, sticky=tk.W, padx=5)
         main_n_label.grid(column=0, row=5)
         main_n_comb.grid(column=1, row=5, sticky=tk.W, padx=5)
         cross_n_label.grid(column=0, row=6)
@@ -161,10 +168,10 @@ def make_win():
         data_exp_label.grid(column=1, row=8)
         run_btn.grid(column=1, row=9)
     else:
-        data_label.grid(column=0, row=4)
-        data_comb.grid(column=1, row=4, sticky=tk.W, padx=5)
-        data_exp_label.grid(column=1, row=5)
-        run_btn.grid(column=1, row=6)
+        data_label.grid(column=0, row=5)
+        data_comb.grid(column=1, row=5, sticky=tk.W, padx=5)
+        data_exp_label.grid(column=1, row=6)
+        run_btn.grid(column=1, row=7)
 
     main_win.columnconfigure(0, weight=1)
     main_win.rowconfigure(0, weight=1)

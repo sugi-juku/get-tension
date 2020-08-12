@@ -316,7 +316,7 @@ class StringLr01(StringLr00):
     lrcoef_file["T"] = "lrcoef01_t.csv"
 
     lr_header = {}
-    lr_header["B"] = ["Tension","F0","MainGauge","CrossGauge"]
+    lr_header["B"] = ["Tension","F0","MainGauge","CrossGauge","FaceSize"]
     lr_header["T"] = ["Tension","F0","MainGauge","MainDensity","CrossGauge","CrossDensity","FaceSize","MainPatN","CrossPatN","MainYoung","CrossYoung"]
     
     # Young's Modulus (kg/mm2)
@@ -387,6 +387,43 @@ class StringLr01(StringLr00):
             # print coef
             tension = 0.0
             tension = coef[0]*float(f0)+coef[1]*float(msg)+coef[2]*float(msd)+coef[3]*float(csg)+coef[4]*float(csd)+coef[5]*float(size)+coef[6]*float(mpat_n)+coef[7]*float(cpat_n)+coef[8]*float(msm)+coef[9]*float(csm)+coef[10]
+            return tension
+
+    def get_lrdata_xlist_b(self, sdata):
+        sdef = sdf.StringDef(self.stype)
+        xlist=[]
+
+        # F0
+        xlist.append(float(sdata.get_f0()))
+
+        # Main String
+        msg=float(sdef.get_gauge(sdata.get_main_string()))
+        # Cross String
+        if sdata.get_cross_string()=='':
+            csg=float(sdef.get_gauge(sdata.get_main_string()))
+        else:
+            csg=float(sdef.get_gauge(sdata.get_cross_string()))
+
+        # Main Gauge
+        xlist.append(msg)
+        # Cross Gauge
+        xlist.append(csg)
+
+        # Face Size
+        xlist.append(float(sdata.get_size()))
+        return xlist
+
+    def get_lrcal_tension_b(self, xlist):
+        f0 = xlist[0]
+        msg = xlist[1]
+        csg = xlist[2]
+        size = xlist[3]
+        with open(self.lrcoef_file[self.stype]) as csvf:
+            reader = csv.reader(csvf, quoting=csv.QUOTE_NONNUMERIC)
+            coef = next(reader)
+            # print coef
+            tension = 0.0
+            tension = coef[0]*float(f0)+coef[1]*float(msg)+coef[2]*float(csg)+coef[3]*float(size)+coef[4]
             return tension
 
 
