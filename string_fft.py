@@ -5,7 +5,7 @@ import numpy as np
 import sys
 import os
 import soundfile as sfile
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
 os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
 
@@ -19,7 +19,7 @@ class StringFft:
     # Index of max amplitude
     max_i=0
 
-    def __init__(self, wavfile):
+    def __init__(self, wavfile, plt_show=0):
         sarg = sda.StringArg(wavfile)
         stype = sarg.get_stype()
         tension = sarg.get_tension()
@@ -43,20 +43,20 @@ class StringFft:
  
         data, fs = sfile.read(wavfile)
 
-        # If you want to plot data, import matplotlib
-        # time = []
-        # for i,val in enumerate(data):
-        #     time.append(i/fs)
-        # plt.plot(time, data)
-        # plt.show()
+        if plt_show == 1:
+            time = []
+            for i,val in enumerate(data):
+                time.append(i/fs)
+            plt.plot(time, data)
+            plt.show()
 
         fft_data = np.abs(np.fft.fft(data))
         freq_data = np.fft.fftfreq(data.shape[0], d=1.0/fs)
 
-        # If you want to plot data, import matplotlib
-        # plt.plot(freq_data, fft_data)
-        # plt.xlim(0, 3000)
-        # plt.show()
+        if plt_show == 1:
+            plt.plot(freq_data, fft_data)
+            plt.xlim(0, 3000)
+            plt.show()
 
         self.max_y=0.0
         self.max_x=0.0
@@ -84,5 +84,5 @@ class StringFft:
 if __name__ == "__main__":
     sf = StringFft("wavdata/20200222163539_T_45_GOAKP16-YOPTF120_98_16-19.wav")
     print(sf.get_f0())
-    sf = StringFft("wavdata/20200307162726_B_27_YOBG80P.wav")
+    sf = StringFft("wavdata/20200307162726_B_27_YOBG80P_56.wav", plt_show=1)
     print(sf.get_f0())
