@@ -114,11 +114,11 @@ def make_win():
     cross_s_comb = ttk.Combobox(main_frm, values=sdef.get_name_list(), state="readonly", width=30)
 
     if stype == "T":
-        s_list = list(range(0,141))
-        s_current = 100
+        s_list = list(range(70,141))
+        s_current = 30
     if stype == "B":
-        s_list = list(range(0,61))
-        s_current = 56
+        s_list = list(range(50,61))
+        s_current = 6
 
     size_label = ttk.Label(main_frm, text="Face Size (in2)")
     global size_comb
