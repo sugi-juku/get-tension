@@ -146,13 +146,13 @@ Windowsを使っている場合は ```*.py``` ファイルをダブルクリッ�
         - 引数: Badminton
 
             ```
-            Argument = B_{MainTension}-{CrossTension}_{MainString}-{CrossString}
+            Argument = B_{MainTension}-{CrossTension}_{MainString}-{CrossString}_{FaceSize}
 
             if MainTension == CrossTension:
-                Argument = B_{MainTension}_{MainString}-{CrossString}
+                Argument = B_{MainTension}_{MainString}-{CrossString}_{FaceSize}
             
             if MainString == CrossString:
-                Argument = B_{MainTension}-{CrossTension}_{MainString}
+                Argument = B_{MainTension}-{CrossTension}_{MainString}_{FaceSize}
             ```
 
     - get_tension_from_wav.py
