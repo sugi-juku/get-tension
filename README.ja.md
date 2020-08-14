@@ -119,7 +119,7 @@ Windowsを使っている場合は ```*.py``` ファイルをダブルクリッ�
 
         ```
         python3 get_tension_data_append.py T_45-43_GOMS16-GOAKP16_98_16-19
-        python3 get_tension_data_append.py B_25_YOBG66UM
+        python3 get_tension_data_append.py B_25_YOBG66UM_56
         ```
     - get_tension_data_noappend.py
 
