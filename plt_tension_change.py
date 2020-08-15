@@ -51,7 +51,12 @@ for wavfile in files:
 
 # Show graph
 sdef = sdf.StringDef(stype)
-plt.title(sdef.get_name(sdata.get_main_string()))
+if sdata.get_cross_string() == "":
+    plt_title = sdef.get_name(sdata.get_main_string())
+else:
+    plt_title = sdef.get_name(sdata.get_main_string()) + " / " + sdef.get_name(sdata.get_cross_string())
+
+plt.title(plt_title)
 plt.xlabel("Time (Hours)")
 plt.ylabel("Tension (Lbs)")
 plt.plot(x, y, label="predicted Tension")
