@@ -1,3 +1,10 @@
+# Version 1.4
+
+Released 2020-08-21
+
+- Some bugfixes
+- Added Badminton face size to Training Data
+
 # Version 1.3
 
 Released 2020-08-10
