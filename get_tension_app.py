@@ -55,21 +55,38 @@ def run_click():
     tension = []
     for filename in srec.get_file_list():
         sdata = sda.StringData()
-        sdata.make_data(filename, csv_append)
-        sl = slr.StringLr01(stype)
-        xlist = sl.get_lrdata_xlist(sdata)
-        tension.append(sl.get_lrcal_tension(xlist))
+        sdata.make_data(filename)
+        stglr = slr.StringLr01(stype)
+        xlist = stglr.get_lrdata_xlist(sdata)
+        tension.append(stglr.get_lrcal_tension(xlist))
+
+    tension_error = 0.0
+    for i, val in enumerate(tension):
+        tension_error += abs(tension[0]-val)
+    tension_error = tension_error / (len(tension) - 1)
+    print("MAError = " + str(tension_error))
+
+    rstr = ""
+    if tension_error > sda.tension_error_val[stype]:
+        for filename in srec.get_file_list():
+            os.remove(filename)
+            print("Removed: " + filename)
+        rstr = "Measurement error.\nPlease try again."
+    else:
+        if csv_append == 1:
+            for filename in srec.get_file_list():
+                sdata = sda.StringData()
+                sdata.make_data(filename, csv_append)
+        total = 0.0
+        avg = 0.0
+        for i, val in enumerate(tension):
+            rstr += str(i+1) + ": " + str(round(val, 2)) + " lbs\n"
+            total += float(val)
+        avg = total/len(tension)
+        rstr += "Average: " + str(round(avg, 2)) + " lbs"
 
     srec.init_file_list()
 
-    rstr = ""
-    total = 0.0
-    avg = 0.0
-    for i, val in enumerate(tension):
-        rstr += str(i+1) + ": " + str(round(val, 2)) + " Lbs\n"
-        total += float(val)
-    avg = total/len(tension)
-    rstr += "Average: " + str(round(avg, 2)) + " Lbs"
     messagebox.showinfo("Results", rstr)
 
     main_win.focus_force()
