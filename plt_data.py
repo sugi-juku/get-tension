@@ -31,7 +31,7 @@ for key, name in sd.stdata_file.items():
     # Show graph
     plt.title(sd.sname[key] + " Stringing Data " + str(sample_n))
     plt.xlabel("Frequency (Hz)")
-    plt.ylabel("Tension (Lbs)")
+    plt.ylabel("Tension (lbs)")
     plt.scatter(x, y)
     pf1 = np.polyfit(x, y, 1)
     pf1_a = round(pf1[0], 4)
@@ -59,8 +59,8 @@ for key, name in sd.stdata_file.items():
  
     # Show graph
     plt.title(sd.sname[key] + f" Polyfit {pf1_str} Error")
-    plt.xlabel("Error (Lbs)")
-    plt.ylabel("Tension (Lbs)")
+    plt.xlabel("Error (lbs)")
+    plt.ylabel("Tension (lbs)")
     plt.scatter(err, y, label=mse_msg)
     plt.legend()
     plt.show()
@@ -83,8 +83,8 @@ for key, name in sd.stdata_file.items():
 
     # Show graph
     plt.title(sd.sname[key] + " LR Error")
-    plt.xlabel("Error (Lbs)")
-    plt.ylabel("Tension (Lbs)")
+    plt.xlabel("Error (lbs)")
+    plt.ylabel("Tension (lbs)")
     plt.scatter(slr.error, slr.y, label=mse_msg)
     plt.legend()
     plt.show()

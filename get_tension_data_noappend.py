@@ -15,12 +15,12 @@ if len(sys.argv) == 1:
     sys.exit()
 
 srec = sr.StringRec(sys.argv[1], "tmp/")
-cvs_append = 1
+csv_append = 1
 
 tension = []
 for filename in srec.get_file_list():
     sdata = sd.StringData()
-    sdata.make_data(filename, cvs_append, "tmp.csv")
+    sdata.make_data(filename, csv_append, "tmp.csv")
     stype = sdata.get_stype()
     slr = sl.StringLr01(stype)
     xlist = slr.get_lrdata_xlist(sdata)
@@ -29,9 +29,9 @@ for filename in srec.get_file_list():
 total = 0.0
 avg = 0.0
 for i, val in enumerate(tension):
-    rstr = str(i+1) + ": " + str(round(val, 2)) + " Lbs"
+    rstr = str(i+1) + ": " + str(round(val, 2)) + " lbs"
     print(rstr)
     total += float(val)
 avg = total/len(tension)
-rstr = "Average: " + str(round(avg, 2)) + " Lbs"
+rstr = "Average: " + str(round(avg, 2)) + " lbs"
 print(rstr)
