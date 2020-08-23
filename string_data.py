@@ -14,6 +14,10 @@ sname = {}
 sname["B"] = "Badminton"
 sname["T"] = "Tennis"
 
+tension_error_val = {}
+tension_error_val["B"] = 0.2
+tension_error_val["T"] = 0.4
+
 stdata_file = {}
 stdata_file["B"] = "stdata_b.csv"
 stdata_file["T"] = "stdata_t.csv"
