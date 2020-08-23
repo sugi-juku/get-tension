@@ -16,8 +16,8 @@ import tkinter.ttk as ttk
 
 os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
 
-import string_def as sdf
-import string_rec as src
+import string_def as sde
+import string_rec as sre
 import string_data as sda
 import string_lr as slr
 
@@ -27,7 +27,7 @@ def run_click():
     # data_exp_label_text.set("Recording...")
     messagebox.showinfo("Rcording", "After ckicking [OK] button,\nplease hit your racket face near PC.")
 
-    sdef = sdf.StringDef(stype)
+    sdef = sde.StringDef(stype)
     main_s = ""
     cross_s = ""
     if main_s_comb.get() != "":
@@ -46,9 +46,9 @@ def run_click():
         csv_append = 1
 
     if csv_append == 0:
-        srec = src.StringRec(args, "tmp/")
+        srec = sre.StringRec(args, "tmp/")
     if csv_append == 1:
-        srec = src.StringRec(args)
+        srec = sre.StringRec(args)
 
     # data_exp_label_text.set("Calculating...")
 
@@ -107,7 +107,7 @@ def make_win():
     main_frm = ttk.Frame(main_win)
     main_frm.grid(column=0, row=0, sticky=tk.NSEW, padx=5, pady=10)
 
-    sdef = sdf.StringDef(stype)
+    sdef = sde.StringDef(stype)
     if stype == "T":
         t_list = list(range(0,81))
         t_current = 50

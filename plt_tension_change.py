@@ -8,9 +8,9 @@ import matplotlib.pyplot as plt
 
 os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
 
-import string_def as sdf
-import string_data as sd
-import string_lr as sl
+import string_def as sde
+import string_data as sda
+import string_lr as slr
 
 if len(sys.argv) == 1:
     print("Please give target dirpath to argument.")
@@ -34,23 +34,23 @@ cnt = 0
 x_max = 0
 for wavfile in files:
     wavfile = str(wavfile)
-    sdata = sd.StringData()
+    sdata = sda.StringData()
     sdata.make_data(wavfile)
     stype = sdata.get_stype()
-    slr = sl.StringLr01(stype)
-    xlist = slr.get_lrdata_xlist(sdata)
+    stglr = slr.StringLr01(stype)
+    xlist = stglr.get_lrdata_xlist(sdata)
     if cnt == 0:
         dt0 = sdata.get_datetime()
     td = sdata.get_datetime() - dt0
     hours = td.total_seconds()/3600.0
     x.append(hours)
-    y.append(slr.get_lrcal_tension(xlist))
+    y.append(stglr.get_lrcal_tension(xlist))
     yy.append(sdata.get_tension())
     cnt += 1
     x_max = td.seconds
 
 # Show graph
-sdef = sdf.StringDef(stype)
+sdef = sde.StringDef(stype)
 if sdata.get_cross_string() == "":
     plt_title = sdef.get_name(sdata.get_main_string())
 else:
@@ -58,7 +58,7 @@ else:
 
 plt.title(plt_title)
 plt.xlabel("Time (Hours)")
-plt.ylabel("Tension (Lbs)")
+plt.ylabel("Tension (lbs)")
 plt.plot(x, y, label="predicted Tension")
 plt.plot(x, yy, label="Machine Tension")
 plt.legend()

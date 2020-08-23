@@ -1,25 +1,20 @@
 #!/usr/bin/env python3
 # coding: utf-8
 
-import csv
 import os
 import sys
-import numpy as np
-from sklearn.linear_model import LinearRegression
 
 os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
 
-import string_def as sdf
-import string_data as sda
-import string_lr as sl
+import string_lr as slr
 
 
-slr = sl.StringLr01("B")
-slr.fit()
+stglr = slr.StringLr01("B")
+stglr.fit()
 print("Badminton")
-print("Mean squared error = " + str(slr.get_mean_squared_error()))
+print("Mean squared error = " + str(stglr.get_mean_squared_error()))
 
-slr = sl.StringLr01("T")
-slr.fit()
+stglr = slr.StringLr01("T")
+stglr.fit()
 print("Tennis")
-print("Mean squared error = " + str(slr.get_mean_squared_error()))
+print("Mean squared error = " + str(stglr.get_mean_squared_error()))

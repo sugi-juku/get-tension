@@ -6,24 +6,24 @@ import sys
 
 os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
 
-import string_rec as sr
-import string_data as sd
-import string_lr as sl
+import string_rec as sre
+import string_data as sda
+import string_lr as slr
 
 if len(sys.argv) == 1:
     print("Please give stringing argstr to argument.")
     sys.exit()
 
-srec = sr.StringRec(sys.argv[1], "tmp/")
+srec = sre.StringRec(sys.argv[1], "tmp/")
 csv_append = 1
 
 tension = []
 for filename in srec.get_file_list():
-    sdata = sd.StringData()
+    sdata = sda.StringData()
     sdata.make_data(filename, csv_append, "tmp.csv")
     stype = sdata.get_stype()
-    slr = sl.StringLr01(stype)
-    xlist = slr.get_lrdata_xlist(sdata)
+    stglr = stglr.StringLr01(stype)
+    xlist = stglr.get_lrdata_xlist(sdata)
     tension.append(slr.get_lrcal_tension(xlist))
 
 total = 0.0

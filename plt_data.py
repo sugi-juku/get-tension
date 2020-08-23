@@ -9,10 +9,10 @@ import matplotlib.pyplot as plt
 
 os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
 
-import string_data as sd
-import string_lr as sl
+import string_data as sda
+import string_lr as slr
 
-for key, name in sd.stdata_file.items():
+for key, name in sda.stdata_file.items():
     x=[]
     y=[]
     with open(name) as csvf:
@@ -21,7 +21,7 @@ for key, name in sd.stdata_file.items():
         # print(header)
         i = 0
         for row in reader:
-            sdata = sd.StringData(row)
+            sdata = sda.StringData(row)
             i += 1
             # Frequency
             x.append(sdata.get_f0())
@@ -29,7 +29,7 @@ for key, name in sd.stdata_file.items():
             y.append(sdata.get_tension())
         sample_n = int(i/2)
     # Show graph
-    plt.title(sd.sname[key] + " Stringing Data " + str(sample_n))
+    plt.title(sda.sname[key] + " Stringing Data " + str(sample_n))
     plt.xlabel("Frequency (Hz)")
     plt.ylabel("Tension (lbs)")
     plt.scatter(x, y)
@@ -58,7 +58,7 @@ for key, name in sd.stdata_file.items():
     print(mse_msg)
  
     # Show graph
-    plt.title(sd.sname[key] + f" Polyfit {pf1_str} Error")
+    plt.title(sda.sname[key] + f" Polyfit {pf1_str} Error")
     plt.xlabel("Error (lbs)")
     plt.ylabel("Tension (lbs)")
     plt.scatter(err, y, label=mse_msg)
@@ -66,9 +66,9 @@ for key, name in sd.stdata_file.items():
     plt.show()
 
     # LR Data
-    slr = sl.StringLr01(key)
-    slr.fit()
-    mean_squared_error = slr.get_mean_squared_error()
+    stglr = slr.StringLr01(key)
+    stglr.fit()
+    mean_squared_error = stglr.get_mean_squared_error()
     mse_msg = "LR Mean squared error = " + str(round(mean_squared_error,2))
     print(mse_msg)
 
@@ -77,15 +77,15 @@ for key, name in sd.stdata_file.items():
     else:
         check_val = 2
 
-    for i,val in enumerate(slr.error):
+    for i,val in enumerate(stglr.error):
         if abs(val) > check_val:
             print(i+2,val)
 
     # Show graph
-    plt.title(sd.sname[key] + " LR Error")
+    plt.title(sda.sname[key] + " LR Error")
     plt.xlabel("Error (lbs)")
     plt.ylabel("Tension (lbs)")
-    plt.scatter(slr.error, slr.y, label=mse_msg)
+    plt.scatter(stglr.error, stglr.y, label=mse_msg)
     plt.legend()
     plt.show()
 
