@@ -22,9 +22,9 @@ for filename in srec.get_file_list():
     sdata = sda.StringData()
     sdata.make_data(filename, csv_append, "tmp.csv")
     stype = sdata.get_stype()
-    stglr = stglr.StringLr01(stype)
+    stglr = slr.StringLr01(stype)
     xlist = stglr.get_lrdata_xlist(sdata)
-    tension.append(slr.get_lrcal_tension(xlist))
+    tension.append(stglr.get_lrcal_tension(xlist))
 
 total = 0.0
 avg = 0.0
