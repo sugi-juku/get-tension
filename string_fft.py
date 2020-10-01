@@ -33,11 +33,11 @@ class StringFft:
         x_smin["T"] = 450
         # Polyfit coef
         pf_a = {}
-        pf_a["B"] = 0.037
-        pf_a["T"] = 0.077
+        pf_a["B"] = 0.022
+        pf_a["T"] = 0.067
         pf_b = {}
-        pf_b["B"] = -18.0
-        pf_b["T"] = 2.2
+        pf_b["B"] = -2.2
+        pf_b["T"] = 8.3
         x_smax = {}
         x_smax[stype] = (tension-pf_b[stype])/pf_a[stype]+ADD_FREQ
  
