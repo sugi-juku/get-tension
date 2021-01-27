@@ -59,17 +59,25 @@ class StringArg:
         filename = os.path.basename(wavfile)
         data = filename.replace(".wav","")
         self.arg_list = data.split("_")
+        stype = self.arg_list[1]
 
         # Tension
         ts = self.arg_list[2].split("-")
         if len(ts)==2:
-            self.tension = (float(ts[0])+float(ts[1]))/2.0
+            if stype=="B":
+                self.tension = float(ts[0])
+            else:
+                self.tension = (float(ts[0])+float(ts[1]))/2.0
             self.main_tension = float(ts[0])
             self.cross_tension = float(ts[1])
         else:
             self.tension = float(ts[0])
             self.main_tension = float(ts[0])
-            self.cross_tension = float(ts[0])
+            if stype=="B":
+                # Badminton YONEX pattern cross tension +2 lbs default
+                self.cross_tension = float(ts[0])+2.0
+            else:
+                self.cross_tension = float(ts[0])
 
         # String
         self.stg = self.arg_list[3].split("-")
