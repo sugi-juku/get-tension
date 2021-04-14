@@ -88,6 +88,7 @@ def run_click():
     srec.init_file_list()
 
     messagebox.showinfo("Results", rstr)
+    print(rstr)
 
     main_win.focus_force()
     # main_win.destroy()
