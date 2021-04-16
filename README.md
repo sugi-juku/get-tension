@@ -5,6 +5,7 @@ You can get racket string tension from the sound by hitting your racket face.
 AI learns sounds just finished stringing and predicts current racket string tension.
 It works on Mac, Windows, Linux.
 It is written in Python.
+By default, training data is my stringing data. If you are a stringer, you can use your own stringing data and get your own tension, too.
 
 ![python powered](https://raw.githubusercontent.com/sugi-juku/get-tension/master/python-powered-w-200x80.png)
 
