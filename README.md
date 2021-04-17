@@ -35,7 +35,7 @@ The work is as follows.
 1. It worked on Windows 10 Home Python 3.8.3.
 
 I\'m both a stringer and a programmer.
-I used to develop web applications often with PHP at several IT companies.
+I used to develop web applications often with PHP at several major IT companies.
 This is my first Python application.
 Now, I love Python, too.
 
