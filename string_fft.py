@@ -27,19 +27,21 @@ class StringFft:
         #
         # Frequency Search range
         #
-        ADD_FREQ = 125
+        add_freq = {}
+        add_freq["B"] = 130
+        add_freq["T"] = 115
         x_smin = {}
         x_smin["B"] = 950
         x_smin["T"] = 450
         # Polyfit coef
         pf_a = {}
-        pf_a["B"] = 0.021
-        pf_a["T"] = 0.067
+        pf_a["B"] = 0.0259
+        pf_a["T"] = 0.0625
         pf_b = {}
-        pf_b["B"] = -2.3
-        pf_b["T"] = 8.0
+        pf_b["B"] = -8.753
+        pf_b["T"] = 10.665
         x_smax = {}
-        x_smax[stype] = (tension-pf_b[stype])/pf_a[stype]+ADD_FREQ
+        x_smax[stype] = (tension-pf_b[stype])/pf_a[stype]+add_freq[stype]
  
         data, fs = sfile.read(wavfile)
 
@@ -84,5 +86,5 @@ class StringFft:
 if __name__ == "__main__":
     sf = StringFft("wavdata/20200222163539_T_45_GOAKP16-YOPTF120_98_16-19.wav")
     print(sf.get_f0())
-    sf = StringFft("wavdata/20200307162726_B_27_YOBG80P_56.wav", plt_show=1)
+    sf = StringFft("tmp/20210417160027_T_52_TFXONE124_98_16-19.wav", plt_show=1)
     print(sf.get_f0())
