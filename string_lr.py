@@ -322,7 +322,8 @@ class StringLr01(StringLr00):
     # Young's Modulus (kg/mm2)
     # 65(6), 411-416(1996), J.Seric.Sci.Jpn. Mechanical Properties of Silk String.
     young_mod = {}
-    young_mod["N"] = 400
+    young_mod["N"] = 350
+    young_mod["M"] = 450
     young_mod["P"] = 1000
     young_mod["G"] = 450
 

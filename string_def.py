@@ -23,7 +23,8 @@ class StringDef:
     deffile["B"] = "string_def_b.csv"
 
     matstr = {}
-    matstr["N"] = "Nylon "
+    matstr["N"] = "Nylon mono "
+    matstr["M"] = "Nylon multi "
     matstr["P"] = "Polyester "
     matstr["G"] = "Natural "
 
@@ -164,12 +165,14 @@ if __name__ == "__main__":
 
     sd = StringDef('T')
     # density = 1.22529565296734
-    density = 1.368248865886832
+    # density = 1.226522617952606
+    # density = 1.368248865886832
+    density = 1.2386074291183662
     print(sd.get_key_from_name("GOSEN AK PRO 16"))
     for key, val in sorted(sd.get_dict().items()):
         print(key, val, sd.get_density(key), sd.get_face_density(key, 98, "main", 16), sd.get_factor_from_density(density, sd.get_gauge(key)))
     sd = StringDef('B')
-    density = 1.2273658265247267
+    density = 1.226522617952606
     for key, val in sorted(sd.get_dict().items()):
         print(key, val, sd.get_factor_from_density(density, sd.get_gauge(key)))
 
