@@ -1,3 +1,14 @@
+# Version 1.5
+
+Released 2021-05-01
+
+- Some bugfixes
+- Added Nylon multi Young's modulous
+- Changed badminton stringing machine GOSEN GM20-EX
+- Changed badminton tension calculating logic tension = main_tension
+- Modified to check measurement tension value before appending
+- Added Wilson Badminton strings
+
 # Version 1.4
 
 Released 2020-08-21
