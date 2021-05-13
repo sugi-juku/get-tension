@@ -3,7 +3,7 @@
 Released 2021-05-01
 
 - Some bugfixes
-- Added Nylon multi Young's modulous
+- Added Nylon multi Young's modulus
 - Changed badminton stringing machine GOSEN GM20-EX
 - Changed badminton tension calculating logic tension = main_tension
 - Modified to check measurement tension value before appending
