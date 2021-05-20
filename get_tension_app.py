@@ -99,9 +99,9 @@ def make_win():
     win_w = main_win.winfo_screenwidth()
     win_h = main_win.winfo_screenheight()
     app_w = 530
-    app_h = 290
+    app_h = 285
     if stype == "B":
-        app_h = 235
+        app_h = 230
     main_win.geometry(get_center_geometry_str(win_w, win_h, app_w, app_h))
     main_win.title("Stringing DATA")
 
@@ -116,11 +116,11 @@ def make_win():
         t_list = list(range(0,41))
         t_current = 20
 
-    main_t_label = ttk.Label(main_frm, text="Main Tension")
+    main_t_label = ttk.Label(main_frm, text="Main Tension (lbs)")
     global main_t_comb
     main_t_comb = ttk.Combobox(main_frm, values=t_list, state="readonly", width=5)
     main_t_comb.current(t_current)
-    cross_t_label = ttk.Label(main_frm, text="Cross Tension")
+    cross_t_label = ttk.Label(main_frm, text="Cross Tension (lbs)")
     global cross_t_comb
     cross_t_comb = ttk.Combobox(main_frm, values=t_list, state="readonly", width=5)
     main_s_label = ttk.Label(main_frm, text="Main String")
@@ -165,6 +165,8 @@ def make_win():
     data_comb.current(1)
     global run_btn
     run_btn = ttk.Button(main_frm, text="RUN", command=run_click)
+    global top_btn
+    top_btn = ttk.Button(main_frm, text="Back to top", command=top_click)
 
     main_t_label.grid(column=0, row=0)
     main_t_comb.grid(column=1, row=0, sticky=tk.W, padx=5)
@@ -184,11 +186,13 @@ def make_win():
         data_label.grid(column=0, row=7)
         data_comb.grid(column=1, row=7, sticky=tk.W, padx=5)
         data_exp_label.grid(column=1, row=8)
+        top_btn.grid(column=0, row=9)
         run_btn.grid(column=1, row=9)
     else:
         data_label.grid(column=0, row=5)
         data_comb.grid(column=1, row=5, sticky=tk.W, padx=5)
         data_exp_label.grid(column=1, row=6)
+        top_btn.grid(column=0, row=7)
         run_btn.grid(column=1, row=7)
 
     main_win.columnconfigure(0, weight=1)
@@ -196,6 +200,10 @@ def make_win():
     main_win.columnconfigure(0, weight=1)
 
     main_win.mainloop()
+
+def top_click():
+    main_win.destroy()
+    make_top()
 
 def stype_click_t():
     global stype
@@ -214,30 +222,35 @@ def get_center_geometry_str(win_w, win_h, app_w, app_h):
     center_h = int((win_h-app_h)/2)
     return str(app_w)+"x"+str(app_h)+"+"+str(center_w)+"+"+str(center_h)
 
+def make_top():
+    global main_win
+    main_win = tk.Tk()
 
-main_win = tk.Tk()
-win_w = main_win.winfo_screenwidth()
-win_h = main_win.winfo_screenheight()
-app_w = 300
-app_h = 330
-main_win.geometry(get_center_geometry_str(win_w, win_h, app_w, app_h))
+    win_w = main_win.winfo_screenwidth()
+    win_h = main_win.winfo_screenheight()
+    app_w = 300
+    app_h = 330
+    main_win.geometry(get_center_geometry_str(win_w, win_h, app_w, app_h))
 
-main_win.title("Get Tension")
-main_win.configure(bg="white")
-logo = tk.PhotoImage(file="logo_270.gif")
-logo_label = tk.Label(main_win, image=logo)
-py_logo = tk.PhotoImage(file="python-powered-w-200x80.gif")
-py_logo_label = tk.Label(main_win, image=py_logo)
-label = tk.Label(text="Please select type of sports.")
-copy_label = tk.Label(text="Copyright (C) 2020 Yukihiko Sugimura.")
-t_btn = ttk.Button(main_win, text="Tennis", command=stype_click_t)
-b_btn = ttk.Button(main_win, text="Badminton", command=stype_click_b)
+    main_win.title("Get Tension")
+    main_win.configure(bg="white")
+    logo = tk.PhotoImage(file="logo_270.gif")
+    logo_label = tk.Label(main_win, image=logo)
+    py_logo = tk.PhotoImage(file="python-powered-w-200x80.gif")
+    py_logo_label = tk.Label(main_win, image=py_logo)
+    label = tk.Label(text="Please select.")
+    copy_label = tk.Label(text="Copyright (C) 2020 Yukihiko Sugimura.")
+    t_btn = ttk.Button(main_win, text="Tennis", command=stype_click_t)
+    b_btn = ttk.Button(main_win, text="Badminton", command=stype_click_b)
 
-logo_label.pack()
-label.pack()
-t_btn.pack(fill="x")
-b_btn.pack(fill="x")
-py_logo_label.pack()
-copy_label.pack()
+    logo_label.pack()
+    label.pack()
+    t_btn.pack(fill="x")
+    b_btn.pack(fill="x")
+    py_logo_label.pack()
+    copy_label.pack()
 
-main_win.mainloop()
+    main_win.mainloop()
+
+
+make_top()
