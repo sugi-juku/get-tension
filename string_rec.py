@@ -9,11 +9,13 @@ import soundfile as sfile
 from datetime import datetime
 
 WAVDIR = "wavdata/"
+REC_N = 2
+REC_SEC = 2
 
 class StringRec:
     file_list = []
 
-    def __init__(self, argstr, wavdir=WAVDIR, rec_n=2, rec_sec=2, fs=44100):
+    def __init__(self, argstr, wavdir=WAVDIR, rec_n=REC_N, rec_sec=REC_SEC, fs=44100):
         for i in range(rec_n):
             filename = wavdir + datetime.today().strftime("%Y%m%d%H%M%S") + "_" + argstr + ".wav"
             self.file_list.append(filename)

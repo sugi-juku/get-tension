@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
 
 import string_data as sda
+import string_rec as sre
 import string_lr as slr
 
 for key, name in sda.stdata_file.items():
@@ -27,7 +28,7 @@ for key, name in sda.stdata_file.items():
             x.append(sdata.get_f0())
             # Tension
             y.append(sdata.get_tension())
-        sample_n = int(i/2)
+        sample_n = int(i/sre.REC_N)
     # Show graph
     plt.title(sda.sname[key] + " Stringing Data " + str(sample_n))
     plt.xlabel("Frequency (Hz)")
