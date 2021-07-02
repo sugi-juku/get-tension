@@ -13,7 +13,7 @@ By default, training data is my stringing data. If you are a stringer, you can u
 ## Description
 
 My stringing shop was closed about 2 months for COVID-19 in Spring 2020.
-So I decided to develop an application getting racket string tension from sound.
+So I decided to develop a software getting racket string tension from sound.
 
 There is also a method of measuring Dynamic Tension (DT) with a dedicated measuring machine.
 But when you order stringing, you can only specify the tension of the stringing machine.
