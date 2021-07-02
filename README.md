@@ -37,7 +37,7 @@ The work is as follows.
 
 I\'m both a stringer and a programmer.
 I used to develop web applications often with PHP at several major IT companies.
-This is my first Python application.
+This is my first software with Python.
 Now, I love Python, too.
 
 ## Requirement
