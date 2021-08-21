@@ -9,7 +9,6 @@ import matplotlib.pyplot as plt
 
 os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
 
-import string_def as sdf
 import string_data as sda
 import string_rec as sre
 import string_lr as slr
