@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 
 os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
 
+import string_def as sdf
 import string_data as sda
 import string_rec as sre
 import string_lr as slr
@@ -16,6 +17,8 @@ import string_lr as slr
 for key, name in sda.stdata_file.items():
     x=[]
     y=[]
+    mst=[]
+    cst=[]
     with open(name) as csvf:
         reader = csv.reader(csvf)
         header = next(reader)
@@ -28,6 +31,10 @@ for key, name in sda.stdata_file.items():
             x.append(sdata.get_f0())
             # Tension
             y.append(sdata.get_tension())
+            # Main String
+            mst.append(sdata.get_main_string())
+            # Cross String
+            cst.append(sdata.get_cross_string())
         sample_n = int(i/sre.REC_N)
     # Show graph
     plt.title(sda.sname[key] + " Stringing Data " + str(sample_n))
@@ -78,15 +85,45 @@ for key, name in sda.stdata_file.items():
     else:
         check_val = 2
 
+    ii = 0
     for i,val in enumerate(stglr.error):
         if abs(val) > check_val:
-            print(i+2,val)
+            if ii == 0:
+                print("Large error data")
+            print(i+2,mst[i],cst[i],val)
+            ii +=1
 
     # Show graph
     plt.title(sda.sname[key] + " LR Error")
     plt.xlabel("Error (lbs)")
     plt.ylabel("Tension (lbs)")
     plt.scatter(stglr.error, stglr.y, label=mse_msg)
+    plt.legend()
+    plt.show()
+
+    # Correction LR Data
+    mean_squared_error = stglr.get_mean_squared_error_cor()
+    mse_msg = "Correction LR Mean squared error = " + str(round(mean_squared_error,2))
+    print(mse_msg)
+
+    if key == "T":
+        check_val = 4
+    else:
+        check_val = 2
+
+    ii = 0
+    for i,val in enumerate(stglr.error_cor):
+        if abs(val) > check_val:
+            if ii == 0:
+                print("Large error data")
+            print(i+2,mst[i],cst[i],val)
+            ii +=1
+
+    # Show graph
+    plt.title(sda.sname[key] + " Correction LR Error")
+    plt.xlabel("Error (lbs)")
+    plt.ylabel("Tension (lbs)")
+    plt.scatter(stglr.error_cor, stglr.y, label=mse_msg)
     plt.legend()
     plt.show()
 

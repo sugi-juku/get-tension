@@ -12,19 +12,27 @@ os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
 import string_def as sdf
 import string_data as sda
 
+
 class StringLr:
     stype = ""
     x = []
     y = []
+    mst=[]
+    cst=[]
     lrcal_y = []
+    lrcal_y_cor = []
     error = []
+    error_cor = []
 
     # Mean Absolute Error
     maerror = 0.0
+    maerror_cor = 0.0
     # Mean Squared Error
     mserror = 0.0
+    mserror_cor = 0.0
     # R2 Score
     r2_score = 0.0
+    r2_score_cor = 0.0
 
     lr_header = {}
     lr_header["B"] = ["Tension","F0","Gauge"]
@@ -37,6 +45,11 @@ class StringLr:
     lrcoef_file = {}
     lrcoef_file["B"] = "lrcoef_b.csv"
     lrcoef_file["T"] = "lrcoef_t.csv"
+
+    # String correction file
+    lrstcor_file = {}
+    lrstcor_file["T"] = "lrstcor_t.csv"
+    lrstcor_file["B"] = "lrstcor_b.csv"
 
     def __init__(self, stype):
         self.stype = stype
@@ -52,6 +65,8 @@ class StringLr:
 
         self.x.clear()
         self.y.clear()
+        self.mst.clear()
+        self.cst.clear()
         with open(sda.stdata_file[self.stype]) as csvf:
             reader = csv.reader(csvf)
             header = next(reader)
@@ -68,6 +83,11 @@ class StringLr:
                 self.x.append(xlist)
                 tmp.extend(xlist)
                 # print(tmp)
+
+                # Main String
+                self.mst.append(sdata.get_main_string())
+                # Cross String
+                self.cst.append(sdata.get_cross_string())
 
                 if write_lrdata == 1:
                     # Write Data for LrData
@@ -94,7 +114,12 @@ class StringLr:
         sum_error2_avg = 0.0
         self.lrcal_y.clear()
         self.error.clear()
+        stcnt = {}
+        sterr = {}
+        stcnt.clear()
+        sterr.clear()
         y_avg = sum(self.y)/len(self.y)
+
         for i,xlist in enumerate(self.x):
             self.lrcal_y.append(self.get_lrcal_tension(xlist))
             error = self.y[i]-self.lrcal_y[i]
@@ -103,9 +128,45 @@ class StringLr:
             sum_error += abs(error)
             sum_error2 += error*error
             sum_error2_avg += error_avg*error_avg
-            self.maerror = sum_error/len(self.x)
-            self.mserror = sum_error2/len(self.x)
-            self.r2_score = 1-sum_error2/sum_error2_avg
+ 
+            # Get correction value for each string
+            if self.cst[i] == "" or self.mst[i] == self.cst[i]:
+                stcnt.setdefault(self.mst[i], 0)
+                sterr.setdefault(self.mst[i], 0.0)
+                stcnt[self.mst[i]] += 1
+                sterr[self.mst[i]] += error
+
+        self.maerror = sum_error/len(self.x)
+        self.mserror = sum_error2/len(self.x)
+        self.r2_score = 1-sum_error2/sum_error2_avg
+
+        # Make correction file
+        with open(self.lrstcor_file[self.stype], "w") as csvf:
+            writer = csv.writer(csvf)
+            writer.writerow(["Code", "Correction value"])
+            for mst,val in sterr.items():
+                sterr_avg = val/float(stcnt[mst])
+                writer.writerow([mst, sterr_avg])
+
+        # Caluculate MAE, MSE, R2 using correction value
+        sum_error = 0.0
+        sum_error2 = 0.0
+        sum_error2_avg = 0.0
+        self.lrcal_y_cor.clear()
+        self.error_cor.clear()
+
+        for i,xlist in enumerate(self.x):
+            self.lrcal_y_cor.append(self.get_lrcal_tension_cor(xlist, self.mst[i], self.cst[i]))
+            error = self.y[i]-self.lrcal_y_cor[i]
+            error_avg = self.y[i]-y_avg
+            self.error_cor.append(error)
+            sum_error += abs(error)
+            sum_error2 += error*error
+            sum_error2_avg += error_avg*error_avg
+ 
+        self.maerror_cor = sum_error/len(self.x)
+        self.mserror_cor = sum_error2/len(self.x)
+        self.r2_score_cor = 1-sum_error2/sum_error2_avg
 
     def get_lrdata_xlist(self, sdata):
         if self.stype == "B":
@@ -161,6 +222,25 @@ class StringLr:
         xlist.append(sdata.get_main_pat_n()+sdata.get_cross_pat_n())
         return xlist
 
+
+    def get_lrcal_tension_cor(self, xlist, main_string_code="", cross_string_code=""):
+        stcor_dict = {}
+        stcor_dict.clear()
+        if os.path.isfile(self.lrstcor_file[self.stype]) == True:
+            with open(self.lrstcor_file[self.stype]) as csvf:
+                reader = csv.reader(csvf)
+                header = next(reader)
+                # print(header)
+                for row in reader:
+                    # Set CSV Data
+                    stcor_dict[row[0]] = float(row[1])
+
+        if cross_string_code == "" or main_string_code == cross_string_code:
+            return self.get_lrcal_tension(xlist) + stcor_dict.get(main_string_code, 0.0)
+        else:
+            return self.get_lrcal_tension(xlist)
+
+
     def get_lrcal_tension(self, xlist):
         tension = 0.0
         if self.stype == "B":
@@ -197,11 +277,20 @@ class StringLr:
     def get_mean_squared_error(self):
         return self.mserror
 
+    def get_mean_squared_error_cor(self):
+        return self.mserror_cor
+
     def get_mean_absolute_error(self):
         return self.maerror
 
+    def get_mean_absolute_error_cor(self):
+        return self.maerror_cor
+
     def get_r2_score(self):
         return self.r2_score
+
+    def get_r2_score_cor(self):
+        return self.r2_score_cor
 
 
 class StringLr00(StringLr):
@@ -212,6 +301,11 @@ class StringLr00(StringLr):
     lrcoef_file = {}
     lrcoef_file["B"] = "lrcoef00_b.csv"
     lrcoef_file["T"] = "lrcoef00_t.csv"
+
+    # String correction file
+    lrstcor_file = {}
+    lrstcor_file["T"] = "lrstcor00_t.csv"
+    lrstcor_file["B"] = "lrstcor00_b.csv"
 
     lr_header = {}
     lr_header["B"] = ["Tension","F0","MainGauge","CrossGauge"]
@@ -314,6 +408,11 @@ class StringLr01(StringLr00):
     lrcoef_file = {}
     lrcoef_file["B"] = "lrcoef01_b.csv"
     lrcoef_file["T"] = "lrcoef01_t.csv"
+
+    # String correction file
+    lrstcor_file = {}
+    lrstcor_file["T"] = "lrstcor01_t.csv"
+    lrstcor_file["B"] = "lrstcor01_b.csv"
 
     lr_header = {}
     lr_header["B"] = ["Tension","F0","MainGauge","CrossGauge","FaceSize"]

@@ -44,7 +44,9 @@ for wavfile in files:
     td = sdata.get_datetime() - dt0
     hours = td.total_seconds()/3600.0
     x.append(hours)
-    y.append(stglr.get_lrcal_tension(xlist))
+    mst = sdata.get_main_string()
+    cst = sdata.get_cross_string()
+    y.append(stglr.get_lrcal_tension_cor(xlist, mst, cst))
     yy.append(sdata.get_tension())
     cnt += 1
     x_max = td.seconds

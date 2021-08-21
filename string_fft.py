@@ -86,5 +86,5 @@ class StringFft:
 if __name__ == "__main__":
     sf = StringFft("wavdata/20200222163539_T_45_GOAKP16-YOPTF120_98_16-19.wav")
     print(sf.get_f0())
-    sf = StringFft("tmp/20210417160027_T_52_TFXONE124_98_16-19.wav", plt_show=1)
+    sf = StringFft("wavdata/20201017154943_B_22_YOBGAS_56.wav", plt_show=1)
     print(sf.get_f0())

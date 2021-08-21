@@ -58,7 +58,9 @@ def run_click():
         sdata.make_data(filename)
         stglr = slr.StringLr01(stype)
         xlist = stglr.get_lrdata_xlist(sdata)
-        tension.append(stglr.get_lrcal_tension(xlist))
+        mst = sdata.get_main_string()
+        cst = sdata.get_cross_string()
+        tension.append(stglr.get_lrcal_tension_cor(xlist, mst, cst))
 
     tension_error = 0.0
     for i, val in enumerate(tension):
