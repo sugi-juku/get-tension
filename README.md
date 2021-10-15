@@ -1,7 +1,7 @@
 # Get Tension
 
 For people who love Tennis and Badminton.
-This is a software for estimating racket string tension with AI.
+This is an application for estimating racket string tension with AI.
 You can get racket string tension from the sound by hitting your racket face.
 AI learns sounds just finished stringing and predicts current racket string tension.
 It works on Mac, Windows, Linux.
@@ -13,7 +13,7 @@ By default, training data is my stringing data. If you are a stringer, you can u
 ## Description
 
 My stringing shop was closed about 2 months for COVID-19 in Spring 2020.
-So I decided to develop a software getting racket string tension from sound.
+So I decided to develop an application getting racket string tension from sound.
 
 There is also a method of measuring Dynamic Tension (DT) with a dedicated measuring machine.
 But when you order stringing, you can only specify the tension of the stringing machine.
@@ -37,7 +37,7 @@ The work is as follows.
 
 I\'m both a stringer and a programmer.
 I used to develop web applications often with PHP at several major IT companies.
-This is my first software with Python.
+This is my first application with Python.
 Now, I love Python, too.
 
 ## Requirement
