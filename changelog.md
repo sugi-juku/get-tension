@@ -1,3 +1,13 @@
+# Version 1.6
+
+Released 2021-11-12
+
+- Some bugfixes
+- Added correcting tension for each string when not hybrid
+- Added "Back to top" button
+- Added some strings
+- Modified about Young's modulus value
+
 # Version 1.5
 
 Released 2021-05-01
