@@ -131,10 +131,14 @@ class StringLr:
  
             # Get correction value for each string
             if self.cst[i] == "" or self.mst[i] == self.cst[i]:
-                stcnt.setdefault(self.mst[i], 0)
-                sterr.setdefault(self.mst[i], 0.0)
-                stcnt[self.mst[i]] += 1
-                sterr[self.mst[i]] += error
+                stkey = self.mst[i]
+            else:
+                stkey = self.mst[i] + "-" + self.cst[i]
+
+            stcnt.setdefault(stkey, 0)
+            sterr.setdefault(stkey, 0.0)
+            stcnt[stkey] += 1
+            sterr[stkey] += error
 
         self.maerror = sum_error/len(self.x)
         self.mserror = sum_error2/len(self.x)
