@@ -102,6 +102,9 @@ Windowsを使っている場合は ```*.py``` ファイルをダブルクリッ�
     python3 get_tension_app.py
     ```
 
+    ![app top image](https://raw.githubusercontent.com/sugi-juku/get-tension/master/app_top.png)
+
+
     上手く動かない場合は、マイクの感度を上げてみてください。
 
     macOSを使っているなら ```get_tension.command``` をダブルクリックしても実行できます。
@@ -183,6 +186,8 @@ Windowsを使っている場合は ```*.py``` ファイルをダブルクリッ�
         ```
         python3 plt_tension_change.py tmp/sample
         ```
+
+        ![GOSEN AK PRO 16](https://raw.githubusercontent.com/sugi-juku/get-tension/master/GOAKP16.png)
 
     - fit_lr.py
 

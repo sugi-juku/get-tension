@@ -103,6 +103,8 @@ If you use Windows, you can run ```*.py``` with a double click.
     python3 get_tension_app.py
     ```
 
+    ![app top image](https://raw.githubusercontent.com/sugi-juku/get-tension/master/app_top.png)
+
     If it doesn't work well, try to increase the sensitivity of the microphone.
 
     If you use macOS, you can run ```get_tension.command``` with a double click.
@@ -184,6 +186,8 @@ If you use Windows, you can run ```*.py``` with a double click.
         ```
         python3 plt_tension_change.py tmp/sample
         ```
+
+        ![GOSEN AK PRO 16](https://raw.githubusercontent.com/sugi-juku/get-tension/master/GOAKP16.png)
 
     - fit_lr.py
 
