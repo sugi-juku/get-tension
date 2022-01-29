@@ -147,10 +147,10 @@ class StringLr:
         # Make correction file
         with open(self.lrstcor_file[self.stype], "w") as csvf:
             writer = csv.writer(csvf)
-            writer.writerow(["Code", "Correction value"])
+            writer.writerow(["Code", "Correction value", "Number"])
             for mst,val in sterr.items():
                 sterr_avg = val/float(stcnt[mst])
-                writer.writerow([mst, sterr_avg])
+                writer.writerow([mst, sterr_avg, stcnt[mst]])
 
         # Caluculate MAE, MSE, R2 using correction value
         sum_error = 0.0
