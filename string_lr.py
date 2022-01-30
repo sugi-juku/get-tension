@@ -240,9 +240,11 @@ class StringLr:
                     stcor_dict[row[0]] = float(row[1])
 
         if cross_string_code == "" or main_string_code == cross_string_code:
-            return self.get_lrcal_tension(xlist) + stcor_dict.get(main_string_code, 0.0)
+            stkey = main_string_code
         else:
-            return self.get_lrcal_tension(xlist)
+            stkey = main_string_code + "-" + cross_string_code
+
+        return self.get_lrcal_tension(xlist) + stcor_dict.get(stkey, 0.0)
 
 
     def get_lrcal_tension(self, xlist):
