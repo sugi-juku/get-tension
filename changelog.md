@@ -1,3 +1,11 @@
+# Version 1.7
+
+Released 2022-03-05
+
+- Added correcting tension for each string when hybrid
+- Added some strings
+- Modified documents
+
 # Version 1.6
 
 Released 2021-11-12
