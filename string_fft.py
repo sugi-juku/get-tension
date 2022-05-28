@@ -63,13 +63,9 @@ class StringFft:
         self.max_i=0
 
         # Search f0
-        # peak_cnt = 0
         for i in peak_i:
             if x_smin[stype] <= freq_data[i] <= x_smax[stype]:
                 if self.max_y < fft_data[i]:
-                    # peak_cnt += 1
-                    # Get first peak
-                    # if peak_cnt < 2:
                     self.max_y=fft_data[i]
                     self.max_x=freq_data[i]
                     self.max_i=i
