@@ -13,3 +13,4 @@ pip3 install sounddevice
 pip3 install soundfile
 pip3 install scikit-learn
 pip3 install pathlib
+pip3 install scipy

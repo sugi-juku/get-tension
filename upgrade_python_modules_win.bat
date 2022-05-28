@@ -6,4 +6,5 @@ py -m pip install --upgrade sounddevice
 py -m pip install --upgrade soundfile
 py -m pip install --upgrade scikit-learn
 py -m pip install --upgrade pathlib
+py -m pip install --upgrade scipy
 set /P str="Hit any KEY to exit."
