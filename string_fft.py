@@ -21,6 +21,10 @@ class StringFft:
     max_i=0
 
     def __init__(self, wavfile, plt_show=0):
+        if os.path.isfile(wavfile) == False:
+            print(wavfile + " is not found.")
+            sys.exit()
+
         sarg = sda.StringArg(wavfile)
         stype = sarg.get_stype()
         tension = sarg.get_tension()
@@ -28,12 +32,13 @@ class StringFft:
         #
         # Frequency Search range
         #
+        peak_cut = 0.75
         add_freq = {}
-        add_freq["B"] = 170
-        add_freq["T"] = 170
+        add_freq["B"] = 180
+        add_freq["T"] = 200
         x_smin = {}
-        x_smin["B"] = 930
-        x_smin["T"] = 460
+        x_smin["B"] = 950
+        x_smin["T"] = 450
         # Polyfit coef
         pf_a = {}
         pf_a["B"] = 0.027
@@ -43,7 +48,7 @@ class StringFft:
         pf_b["T"] = 14.1
         x_smax = {}
         x_smax[stype] = (tension-pf_b[stype])/pf_a[stype]+add_freq[stype]
- 
+
         data, fs = sfile.read(wavfile)
 
         if plt_show == 1:
@@ -58,23 +63,34 @@ class StringFft:
 
         peak_i = sig.argrelmax(fft_data, order=256)[0]
 
-        self.max_y=0.0
-        self.max_x=0.0
-        self.max_i=0
+        self.max_y = 0.0
+        self.max_x = 0.0
+        self.max_i = 0
 
         # Search f0
+        tmp_max_y = 0.0
         for i in peak_i:
             if x_smin[stype] <= freq_data[i] <= x_smax[stype]:
-                if self.max_y < fft_data[i]:
-                    self.max_y=fft_data[i]
-                    self.max_x=freq_data[i]
-                    self.max_i=i
+                if tmp_max_y < fft_data[i]:
+                    tmp_max_y = fft_data[i]
+
+        peak_cnt = 0
+        for i in peak_i:
+            if x_smin[stype] <= freq_data[i] <= x_smax[stype]:
+                if self.max_y < fft_data[i] and tmp_max_y*peak_cut < fft_data[i]:
+                    peak_cnt += 1
+                    # Get first peak
+                    if peak_cnt < 2:
+                        self.max_y = fft_data[i]
+                        self.max_x = freq_data[i]
+                        self.max_i = i
 
         if plt_show == 1:
             plt.plot(freq_data, fft_data)
             plt.xlim(0, 3000)
-            plt.vlines(x_smin[stype], 0, self.max_y, 'r', linestyles='dashed')
-            plt.vlines(x_smax[stype], 0, self.max_y, 'r', linestyles='dashed')
+            plt.vlines(x_smin[stype], 0, self.max_y, colors='red', linestyles='dashed')
+            plt.vlines(x_smax[stype], 0, self.max_y, colors='red', linestyles='dashed')
+            plt.hlines(tmp_max_y*peak_cut, 0, 3000, colors='blue', linestyles='dashed')
             plt.plot(freq_data[peak_i], fft_data[peak_i], 'ro')
             plt.show()
 
@@ -90,7 +106,7 @@ class StringFft:
         return self.max_x
 
 if __name__ == "__main__":
-    sf = StringFft("wavdata/20210811200208_T_40_TFXONE124_95_16-20.wav", plt_show=1)
+    sf = StringFft("wavdata/20210224201248_T_46_LU4GS125_100_16-19.wav", plt_show=1)
     print(sf.get_f0())
-    sf = StringFft("wavdata/20200923192223_B_24_YOBG66UM_56.wav", plt_show=1)
+    sf = StringFft("wavdata/20210424174617_B_27_YOBG80P_56.wav", plt_show=1)
     print(sf.get_f0())
