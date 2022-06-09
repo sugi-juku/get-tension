@@ -84,6 +84,7 @@ class StringFft:
                         self.max_y = fft_data[i]
                         self.max_x = freq_data[i]
                         self.max_i = i
+                        break
 
         if plt_show == 1:
             plt.plot(freq_data, fft_data)
