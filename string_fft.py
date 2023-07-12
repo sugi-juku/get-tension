@@ -32,22 +32,13 @@ class StringFft:
         #
         # Frequency Search range
         #
-        peak_cut = 0.75
-        add_freq = {}
-        add_freq["B"] = 180
-        add_freq["T"] = 200
+        peak_cut = 0.7
         x_smin = {}
-        x_smin["B"] = 950
-        x_smin["T"] = 450
-        # Polyfit coef
-        pf_a = {}
-        pf_a["B"] = 0.027
-        pf_a["T"] = 0.056
-        pf_b = {}
-        pf_b["B"] = -10.1
-        pf_b["T"] = 14.1
+        x_smin["B"] = 700
+        x_smin["T"] = 250
         x_smax = {}
-        x_smax[stype] = (tension-pf_b[stype])/pf_a[stype]+add_freq[stype]
+        x_smax["B"] = 1695
+        x_smax["T"] = 840
 
         data, fs = sfile.read(wavfile)
 
@@ -61,7 +52,8 @@ class StringFft:
         fft_data = np.abs(np.fft.fft(data))
         freq_data = np.fft.fftfreq(data.shape[0], d=1.0/fs)
 
-        peak_i = sig.argrelmax(fft_data, order=256)[0]
+        peak_i , _ = sig.find_peaks(fft_data, prominence=6, distance=300)
+        # peak_i = sig.argrelmax(fft_data, order=256)[0]
 
         self.max_y = 0.0
         self.max_x = 0.0
@@ -73,6 +65,7 @@ class StringFft:
             if x_smin[stype] <= freq_data[i] <= x_smax[stype]:
                 if tmp_max_y < fft_data[i]:
                     tmp_max_y = fft_data[i]
+
 
         peak_cnt = 0
         for i in peak_i:
@@ -107,7 +100,7 @@ class StringFft:
         return self.max_x
 
 if __name__ == "__main__":
-    sf = StringFft("wavdata/20210224201248_T_46_LU4GS125_100_16-19.wav", plt_show=1)
+    sf = StringFft("wavdata/20210213192815_B_26_YONBG99_53.wav", plt_show=1)
     print(sf.get_f0())
-    sf = StringFft("wavdata/20210424174617_B_27_YOBG80P_56.wav", plt_show=1)
+    sf = StringFft("wavdata/20210213192818_B_26_YONBG99_53.wav", plt_show=1)
     print(sf.get_f0())
