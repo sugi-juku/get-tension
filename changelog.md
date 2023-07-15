@@ -1,3 +1,11 @@
+# Version 1.8
+
+Released 2023-07-15
+
+- Modified about f0 search method
+- Added some strings
+- Number of training data: Tennis=1042, Badminton=279
+
 # Version 1.7
 
 Released 2022-03-05
