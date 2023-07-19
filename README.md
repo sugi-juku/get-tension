@@ -46,9 +46,9 @@ Maybe it works on Python 3.6 or higher.
 It works on Mac, Windows, Linux.
 ### Tested environment
 
-* macOS 10.14.6 - 10.15.6 (My development environment)
+* macOS Intel 10.14.6 - 13.4.1 (My development environment)
 
-    * python 3.7.7 - 3.8.5
+    * python 3.7.7 - 3.9.13
 
 * Ubuntu 19.10 - 20.04
 
@@ -62,13 +62,17 @@ It works on Mac, Windows, Linux.
 
 Download from https://github.com/sugi-juku/get-tension and deploy your PC.
 
+For example.
+
+```
+git clone https://github.com/sugi-juku/get-tension.git
+```
+
 ### Python and Python modules
 
 #### macOS
 
-Install Python3.X for Mac OS X from https://www.python.org/downloads/ .
-
-Then double ckick ```Update Shell Profile.command``` in installed directory.
+Install Python3.X for macOS from https://www.python.org/downloads/ .
 
 Then, Install python modules.
 

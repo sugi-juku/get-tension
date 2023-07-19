@@ -45,9 +45,9 @@ Mac, Windows, LinuxのPython 3.6以上で動作します。
 
 ### 動作確認済みの環境
 
-* macOS 10.14.6 - 10.15.6 (私の開発環境)
+* macOS Intel 10.14.6 - 13.4.1 (私の開発環境)
 
-    * python 3.7.7 - 3.8.5
+    * python 3.7.7 - 3.9.13
 
 * Ubuntu 19.10 - 20.04
 
@@ -61,13 +61,17 @@ Mac, Windows, LinuxのPython 3.6以上で動作します。
 
 https://github.com/sugi-juku/get-tension からダウンロードして、好きな場所に配置してください。
 
+例えば次のようにします。
+
+```
+git clone https://github.com/sugi-juku/get-tension.git
+```
+
 ### Python and Python modules
 
 #### macOS
 
-https://www.python.org/downloads/ からMac OS X版Python 3.Xをインストールします。
-
-次にインストールされたディレクトリ内の```Update Shell Profile.command```をダブルクリックします。
+https://www.python.org/downloads/ からmacOS版Python 3.Xをインストールします。
 
 次にPythonのモジュールをインストールします。
 
