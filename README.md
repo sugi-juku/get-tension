@@ -50,9 +50,9 @@ It works on Mac, Windows, Linux.
 
     * python 3.7.7 - 3.9.13
 
-* Ubuntu 19.10 - 20.04
+* Ubuntu 19.10 - 20.04 - 22.04
 
-    * pytyon 3.7.5 - 3.8.2
+    * pytyon 3.7.5 - 3.10.6
 
 * Windows 10 Home 1909
 
