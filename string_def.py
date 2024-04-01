@@ -11,7 +11,7 @@ import math
 class StringDef:
     """Definition of String Data
 
-    sdef[Code] = [Name, Material('N'or'P'or'G'), Gauge, Factor]
+    sdef[Code] = [Name, Material('N'or'M'or'P'or'G'), Gauge, Factor]
     """
 
     sdef = {}
