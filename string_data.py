@@ -68,13 +68,14 @@ class StringArg:
             self.main_tension = float(ts[0])
             self.cross_tension = float(ts[1])
         else:
-            self.tension = float(ts[0])
             self.main_tension = float(ts[0])
             if stype=="B":
                 # Badminton YONEX pattern cross tension +2 lbs default
                 self.cross_tension = float(ts[0])+2.0
+                self.tension = (float(ts[0])+self.cross_tension)/2.0
             else:
                 self.cross_tension = float(ts[0])
+                self.tension = float(ts[0])
 
         # String
         self.stg = self.arg_list[3].split("-")
