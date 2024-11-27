@@ -64,10 +64,7 @@ class StringArg:
         # Tension
         ts = self.arg_list[2].split("-")
         if len(ts)==2:
-            if stype=="B":
-                self.tension = float(ts[0])
-            else:
-                self.tension = (float(ts[0])+float(ts[1]))/2.0
+            self.tension = (float(ts[0])+float(ts[1]))/2.0
             self.main_tension = float(ts[0])
             self.cross_tension = float(ts[1])
         else:
