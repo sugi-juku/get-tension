@@ -62,30 +62,37 @@ class StringDef:
                 self.sdef[key] = [self.matstr[row[2]]+gauge,row[2],float(row[3]),float(row[4])]
                 cnt.setdefault(key, 0)
                 fac.setdefault(key, 0.0)
-                cnt[key] += 1
-                fac[key] += float(row[4])
+                # if string factor == 0.0
+                if float(row[4]) == 0.0:
+                    cnt[row[0]] = 1
+                    fac[row[0]] = 0.0
+                else:
+                    cnt[key] += 1
+                    fac[key] += float(row[4])
 
         # Calculate AVG of Density about Material
-        if stype == "T":
-            cnt_den = {}
-            den = {}
-            for key,val in fac.items():
-                fac_avg = val/float(cnt[key])
-                mat = self.get_material(key)
-                gauge = self.get_gauge(key)
-                cnt_den.setdefault(mat, 0)
-                den.setdefault(mat, 0.0)
+        fac_avg = {}
+        cnt_den = {}
+        den = {}
+        for key,val in fac.items():
+            fac_avg[key] = val/float(cnt[key])
+            mat = self.get_material(key)
+            gauge = self.get_gauge(key)
+            cnt_den.setdefault(mat, 0)
+            den.setdefault(mat, 0.0)
+            # if string factor != 0.0
+            if self.sdef[key][3] != 0.0:
                 cnt_den[mat] += 1
-                den[mat] += self.get_density_from_factor(fac_avg, gauge)
+                den[mat] += self.get_density_from_factor(fac_avg[key], gauge)
 
-            den_avg = {}
-            for mat,val in den.items():
-                den_avg[mat] = val/float(cnt_den[mat])
+        den_avg = {}
+        for mat,val in den.items():
+            den_avg[mat] = val/float(cnt_den[mat])
 
-            for key,val in fac.items():
-                mat = self.get_material(key)
-                gauge = self.get_gauge(key)
-                self.sdef[key][3] = self.get_factor_from_density(den_avg[mat], gauge)
+        for key,val in fac.items():
+            mat = self.get_material(key)
+            gauge = self.get_gauge(key)
+            self.sdef[key][3] = self.get_factor_from_density(den_avg[mat], gauge)
 
         # Make sorted list
         self.key_list.clear()
