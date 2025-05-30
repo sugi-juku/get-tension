@@ -46,8 +46,8 @@ class StringDef:
             sys.exit()
 
         self.sdef.clear()
-        cnt = {}
-        fac = {}
+        cnt_fac = {}
+        sum_fac = {}
         with open(self.deffile[stype]) as csvf:
             reader = csv.reader(csvf)
             header = next(reader)
@@ -60,39 +60,43 @@ class StringDef:
                 gauge = row[3].replace('.','')
                 key = 'ZZ' + row[2] + gauge
                 self.sdef[key] = [self.matstr[row[2]]+gauge,row[2],float(row[3]),float(row[4])]
-                cnt.setdefault(key, 0)
-                fac.setdefault(key, 0.0)
+                cnt_fac.setdefault(key, 0)
+                sum_fac.setdefault(key, 0.0)
                 # if string factor == 0.0
                 if float(row[4]) == 0.0:
-                    cnt[row[0]] = 1
-                    fac[row[0]] = 0.0
+                    cnt_fac[row[0]] = 0
+                    sum_fac[row[0]] = 0.0
                 else:
-                    cnt[key] += 1
-                    fac[key] += float(row[4])
+                    cnt_fac[key] += 1
+                    sum_fac[key] += float(row[4])
 
         # Calculate AVG of Density about Material
-        fac_avg = {}
+        avg_fac = {}
         cnt_den = {}
-        den = {}
-        for key,val in fac.items():
-            fac_avg[key] = val/float(cnt[key])
+        sum_den = {}
+        for key,val in sum_fac.items():
+            if cnt_fac[key] == 0:
+                avg_fac[key] = 0.0
+            else:
+                avg_fac[key] = val/float(cnt_fac[key])
+
             mat = self.get_material(key)
             gauge = self.get_gauge(key)
             cnt_den.setdefault(mat, 0)
-            den.setdefault(mat, 0.0)
-            # if string factor != 0.0
-            if self.sdef[key][3] != 0.0:
+            sum_den.setdefault(mat, 0.0)
+            # if SUM of string factor != 0.0
+            if val != 0.0:
                 cnt_den[mat] += 1
-                den[mat] += self.get_density_from_factor(fac_avg[key], gauge)
+                sum_den[mat] += self.get_density_from_factor(avg_fac[key], gauge)
 
-        den_avg = {}
-        for mat,val in den.items():
-            den_avg[mat] = val/float(cnt_den[mat])
+        avg_den = {}
+        for mat,val in sum_den.items():
+            avg_den[mat] = val/float(cnt_den[mat])
 
-        for key,val in fac.items():
+        for key,val in sum_fac.items():
             mat = self.get_material(key)
             gauge = self.get_gauge(key)
-            self.sdef[key][3] = self.get_factor_from_density(den_avg[mat], gauge)
+            self.sdef[key][3] = self.get_factor_from_density(avg_den[mat], gauge)
 
         # Make sorted list
         self.key_list.clear()
