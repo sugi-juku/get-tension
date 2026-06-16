@@ -240,8 +240,8 @@ def make_top():
     logo_label = tk.Label(main_win, image=logo)
     py_logo = tk.PhotoImage(file="python-powered-w-200x80.gif")
     py_logo_label = tk.Label(main_win, image=py_logo)
-    label = tk.Label(text="Please select.")
-    copy_label = tk.Label(text="Copyright (C) 2020 Yukihiko Sugimura.")
+    label = tk.Label(text="Please select.", bg="white")
+    copy_label = tk.Label(text="Copyright (C) 2020 Yukihiko Sugimura.", bg="white")
     t_btn = ttk.Button(main_win, text="Tennis", command=stype_click_t)
     b_btn = ttk.Button(main_win, text="Badminton", command=stype_click_b)
 
